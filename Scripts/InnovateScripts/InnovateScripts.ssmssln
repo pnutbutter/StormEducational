@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# SQL Server Management Studio Solution File, Format Version 13.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "InnovateScripts", "InnovateScripts\InnovateScripts.ssmssqlproj", "{685EB7AD-10E6-49DC-9AEF-28B37A975E52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{685EB7AD-10E6-49DC-9AEF-28B37A975E52}.Default|Default.ActiveCfg = Default
+		{F4604F85-300B-4250-AB7F-302DD997195B}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

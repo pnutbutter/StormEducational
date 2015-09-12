@@ -1,0 +1,178 @@
+﻿@model IEnumerable<DataAccess.Vocabulary>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerbTenseType.VerbTenseTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Word)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartOfSpeech)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etymology)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Connotation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FriendlyDefinition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adjective)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NounSingular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NounPlural)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerbTenseI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerbTenseWe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerbTenseYou)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerbTenseYou2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerbTenseHeSheIt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VerbTenseThey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Synonym)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Antonym)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sentance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Analogy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChangeDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChangeBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerbTenseType.VerbTenseTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Word)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartOfSpeech)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etymology)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Connotation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FriendlyDefinition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adjective)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NounSingular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NounPlural)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerbTenseI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerbTenseWe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerbTenseYou)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerbTenseYou2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerbTenseHeSheIt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VerbTenseThey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Synonym)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Antonym)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sentance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Analogy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChangeDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChangeBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VocabularyId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VocabularyId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VocabularyId })
+        </td>
+    </tr>
+}
+
+</table>

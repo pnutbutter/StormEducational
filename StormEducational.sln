@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{6CC57AA9-DB0E-4E66-B9EB-82F965103D22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{F2A0B02B-36C7-4C28-B71A-A4B274CA73A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{6CC57AA9-DB0E-4E66-B9EB-82F965103D22}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CC57AA9-DB0E-4E66-B9EB-82F965103D22}.Release|x64.ActiveCfg = Release|x64
 		{6CC57AA9-DB0E-4E66-B9EB-82F965103D22}.Release|x64.Build.0 = Release|x64
+		{F2A0B02B-36C7-4C28-B71A-A4B274CA73A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2A0B02B-36C7-4C28-B71A-A4B274CA73A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2A0B02B-36C7-4C28-B71A-A4B274CA73A0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F2A0B02B-36C7-4C28-B71A-A4B274CA73A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2A0B02B-36C7-4C28-B71A-A4B274CA73A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2A0B02B-36C7-4C28-B71A-A4B274CA73A0}.Release|x64.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
