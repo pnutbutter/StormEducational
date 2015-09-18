@@ -33,6 +33,9 @@ namespace Website.Areas.Project.Models.VocabularyData
 
         public string Sketch { get; set; }
 
+        [Display(Name="Sketch Name")]
+        public string SketchName { get; set; }
+
         [StringLength(250)]
         public string Adjective { get; set; }
 
@@ -77,7 +80,7 @@ namespace Website.Areas.Project.Models.VocabularyData
         [StringLength(250)]
         public string Antonym { get; set; }
 
-        public string Sentance { get; set; }
+        public string Sentence { get; set; }
 
         public string Analogy { get; set; }
 

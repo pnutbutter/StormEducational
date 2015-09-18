@@ -13,9 +13,14 @@ namespace Website.Areas.Project.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Project/Vocabulary
-        public ActionResult Word()
+        public ActionResult Word(int? id)
         {
             Word data = new Word();
+
+            if(id.GetValueOrDefault(0)==1)
+                data.VocabWord = "Peek";
+            else if(id.GetValueOrDefault(0)==2)
+                data.VocabWord = "Avalanche";
 
             ViewBag.VerbTenseTypeId = new SelectList(db.VerbTenseTypes, "VerbTenseTypeId", "VerbTenseTypeName");
 

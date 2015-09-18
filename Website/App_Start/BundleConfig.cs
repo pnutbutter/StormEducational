@@ -8,6 +8,36 @@ namespace Website
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/metisMenu.js",
+                        "~/Scripts/sb-admin-2.js",
+                        "~/Scripts/jquery.dataTables.js",
+                        "~/Scripts/dataTables.bootstrap.js",
+                        "~/Scripts/script.js"
+                        ));
+
+            bundles.Add(new ScriptBundle("~/bundles/charts").Include(
+                        "~/Scripts/raphael.js",
+                        "~/Scripts/morris.js",
+                        "~/Scripts/morris-data.js"
+                        ));
+
+            bundles.Add(new StyleBundle("~/Content/css/styles").Include(
+                     "~/Content/bootstrap.css",
+                     "~/Content/css/metisMenu.css",
+                     "~/Content/css/timeline.css",
+                     "~/Content/css/sb-admin-2.css",
+                     "~/Content/css/font-awesome.css",
+                     "~/Content/css/dataTables.bootstrap.css",
+                     "~/Content/Site.css"));
+
+
+            bundles.Add(new StyleBundle("~/Chart/css").Include(
+                      "~/Content/morris.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -23,9 +53,7 @@ namespace Website
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+           
         }
     }
 }
