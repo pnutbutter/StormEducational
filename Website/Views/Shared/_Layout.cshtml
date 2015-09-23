@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @RenderSection("styles", required: false)
     @Styles.Render("~/Content/css/styles")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -376,7 +377,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application @RenderSection("copyright", required: false)</p>
             </footer>
         </div>
 </div>

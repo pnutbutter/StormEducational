@@ -25,6 +25,37 @@ namespace Website
                         "~/Scripts/morris-data.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/Scripts/svgedit/js").Include(
+                        "~/Scripts/svgedit/jquery.hotkeys.min.js",
+                        "~/Scripts/svgedit/jquery.bbq.min.js",
+                        "~/Scripts/svgedit/jquery.svgicons.js",
+                        "~/Scripts/svgedit/jquery.jgraduate.min.js",
+                        "~/Scripts/svgedit/JQuerySpinBtn.min.js",
+                        "~/Scripts/svgedit/touch.js",
+                        "~/Scripts/svgedit/svgedit.js",
+                        "~/Scripts/svgedit/jquery-svg.js",
+                        "~/Scripts/svgedit/jquery.contextMenu.js",
+                        "~/Scripts/svgedit/browser.js",
+                        "~/Scripts/svgedit/svgtransformlist.js",
+                        "~/Scripts/svgedit/math.js",
+                        "~/Scripts/svgedit/units.js",
+                        "~/Scripts/svgedit/svgutils.js",
+                        "~/Scripts/svgedit/sanitize.js",
+                        "~/Scripts/svgedit/history.js",
+                        "~/Scripts/svgedit/coords.js",
+                        "~/Scripts/svgedit/recalculate.js",
+                        "~/Scripts/svgedit/select.js",
+                        "~/Scripts/svgedit/draw.js",
+                        "~/Scripts/svgedit/path.js",
+                        "~/Scripts/svgedit/svgcanvas.js",
+                        "~/Scripts/svgedit/svg-editor.js",
+                        "~/Scripts/svgedit/locale.js",
+                        "~/Scripts/svgedit/contextmenu.js",
+                        "~/Scripts/svgedit/jquery-ui-1.8.17.custom.min.js",
+                        "~/Scripts/svgedit/jpicker.js"
+                        ));
+
+
             bundles.Add(new StyleBundle("~/Content/css/styles").Include(
                      "~/Content/bootstrap.css",
                      "~/Content/css/metisMenu.css",
@@ -34,6 +65,13 @@ namespace Website
                      "~/Content/css/dataTables.bootstrap.css",
                      "~/Content/Site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/svgedit/styles").Include(
+                     "~/Content/svgedit/jPicker.css",
+                     "~/Content/svgedit/jgraduate.css",
+                     "~/Content/svgedit/svg-editor.css",
+                     "~/Content/svgedit/sb-admin-2.css",
+                     "~/Content/svgedit/JQuerySpinBtn.css"
+                     ));
 
             bundles.Add(new StyleBundle("~/Chart/css").Include(
                       "~/Content/morris.css"));
