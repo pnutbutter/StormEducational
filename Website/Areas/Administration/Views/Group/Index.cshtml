@@ -1,0 +1,48 @@
+﻿@model Website.Areas.Administration.Models.GroupData.GroupIndex
+@{
+    ViewBag.Title = "Group Index Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Group Name
+        </th>
+        <th>
+            Is Active
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+@foreach (var item in Model.GroupList)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupName)
+        </td>
+        <td>
+            @(item.IsActive ? "Yes" : "No")
+        </td>
+        
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
+        </td>*@
+        <td class="text-right">
+            <a class="btn btn-lg btn-primary" href="@Url.Action("Edit", "Edit", new { Area = "Admin", id = item.GroupId })">Edit</a>
+            @*<a class="btn btn-lg btn-success" href="@Url.Action("Details", "Details", new { Area = "Project", id = "1" })">Submit</a>*@
+            <a class="btn btn-lg btn-warning" href="@Url.Action("Delete", "Delete", new { Area = "Admin", id = item.GroupId })">Delete</a>
+        </td>
+    </tr>
+}
+</table>
