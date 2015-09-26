@@ -20,6 +20,11 @@
     border-radius: 5px; 
     min-height: 5em;
 }
+
+.pad-1{
+    padding: 1em;
+}
+
 /*
     Bootstrap 3 file upload
     http://www.abeautifulsite.net/whipping-file-inputs-into-shape-with-bootstrap-3/

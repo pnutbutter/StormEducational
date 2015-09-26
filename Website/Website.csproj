@@ -168,6 +168,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\AppAdmin\AppAdminAreaRegistration.cs" />
+    <Compile Include="Areas\AppAdmin\Controllers\SchoolGroupController.cs" />
+    <Compile Include="Areas\AppAdmin\Controllers\VisibleController.cs" />
+    <Compile Include="Areas\AppAdmin\Models\SchoolGroupData\SchoolGroupCreate.cs" />
+    <Compile Include="Areas\AppAdmin\Models\VisibleData\VisibleCreate.cs" />
+    <Compile Include="Areas\AppAdmin\Models\VisibleData\VisibleIndex.cs" />
     <Compile Include="Areas\Project\Controllers\VocabulariesController.cs" />
     <Compile Include="Areas\Project\Controllers\VocabularyController.cs" />
     <Compile Include="Areas\Project\Models\VocabularyData\Word.cs" />
@@ -223,6 +229,10 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\AppAdmin\Views\web.config" />
+    <Content Include="Areas\AppAdmin\Views\Visible\Index.cshtml" />
+    <Content Include="Areas\AppAdmin\Views\Visible\Create.cshtml" />
+    <Content Include="Areas\AppAdmin\Views\SchoolGroup\Create.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dataTables.bootstrap.js" />
@@ -533,6 +543,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\AppAdmin\Views\Shared\" />
     <Folder Include="Areas\Project\Views\Shared\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

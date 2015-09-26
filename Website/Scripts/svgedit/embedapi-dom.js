@@ -55,7 +55,7 @@ $(function () {
         if ($('#svgedit').length<1)
         {
         $('#svgeditwrapper').append(
-            $('<iframe src="/Scripts/svgedit/svg-editor.html?extensions=ext-xdomain-messaging.js' +
+            $('<iframe class="embed-responsive-item" src="/Scripts/svgedit/svg-editor.html?extensions=ext-xdomain-messaging.js' +
                     window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
                     '" width="900px" height="600px" id="svgedit" onload="initEmbed();"></iframe>'
                 )
