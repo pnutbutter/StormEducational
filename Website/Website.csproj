@@ -169,6 +169,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\Controllers\GroupTypeController.cs" />
+    <Compile Include="Areas\Administration\Models\GroupData\GroupConfirmDelete.cs" />
+    <Compile Include="Areas\Administration\Models\GroupData\GroupCreate.cs" />
+    <Compile Include="Areas\Administration\Models\GroupData\GroupEdit.cs" />
     <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeConfirmDelete.cs" />
     <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeCreate.cs" />
     <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeEdit.cs" />
@@ -249,6 +252,9 @@
     <Content Include="Areas\Administration\Views\GroupType\Create.cshtml" />
     <Content Include="Areas\Administration\Views\GroupType\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\GroupType\ConfirmDelete.cshtml" />
+    <Content Include="Areas\Administration\Views\Group\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Group\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Group\ConfirmDelete.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

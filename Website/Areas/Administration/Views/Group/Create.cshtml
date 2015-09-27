@@ -1,0 +1,60 @@
+﻿@model Website.Areas.Administration.Models.GroupData.GroupCreate
+@{
+    ViewBag.Title = "Add Group";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Add Group Type</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-verticle">
+                <div class="container-fluid clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GroupTypeId, htmlAttributes: new { @class = "control-label col-sm-12" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.GroupTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GroupTypeId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GroupName, htmlAttributes: new { @class = "control-label col-sm-12" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.GroupName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GroupName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-sm-12" })
+                            <div class="col-md-12">
+                                @Html.EditorFor(model => model.IsActive)
+                                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid clearfix pad-1">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                <a class="btn btn-default" href="@Url.Action("Index", "Group", new { Area = "Administration" })">Cancel</a>
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

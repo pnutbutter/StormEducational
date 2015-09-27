@@ -8,6 +8,8 @@ namespace Website.Areas.Administration.Models.GroupData
 {
     public class GroupIndex
     {
-        public List<Group> GroupList { get; set; }
+        public string Message { get; set; }
+
+        public List<Group> ItemList { get; set; }
     }
 }
