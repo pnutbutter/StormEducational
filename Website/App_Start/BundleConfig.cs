@@ -56,7 +56,7 @@ namespace Website
                         ));
 
 
-            bundles.Add(new StyleBundle("~/Content/css/styles").Include(
+            bundles.Add(new StyleBundle("~/Content/css/blah").Include(
                      "~/Content/bootstrap.css",
                      "~/Content/css/metisMenu.css",
                      "~/Content/css/timeline.css",
@@ -91,7 +91,7 @@ namespace Website
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-           
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

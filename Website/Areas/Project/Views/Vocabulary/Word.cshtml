@@ -258,13 +258,13 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.WordArray, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-10">
-                                    @Html.TextBox("word-array-input",String.Empty, new { @class = "form-control" })
+                                <div class="col-sm-10">
+                                    @Html.TextBox("word-array-input", String.Empty, new { @class = "form-control" })
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-sm-2">
                                     <a href="#" id="add-word-array" class="btn btn-primary btn-sm col-sm-12">+Add</a>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-sm-12">
                                     @Html.ValidationMessageFor(model => model.WordArray, "", new { @class = "text-danger" })
                                     @Html.HiddenFor(model => model.WordArray)
                                     <div id="word-array" class="word-array-wrapper">

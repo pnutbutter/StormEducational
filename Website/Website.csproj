@@ -168,6 +168,11 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Administration\Controllers\GroupTypeController.cs" />
+    <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeConfirmDelete.cs" />
+    <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeCreate.cs" />
+    <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeEdit.cs" />
+    <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeIndex.cs" />
     <Compile Include="Areas\AppAdmin\AppAdminAreaRegistration.cs" />
     <Compile Include="Areas\AppAdmin\Controllers\SchoolGroupController.cs" />
     <Compile Include="Areas\AppAdmin\Controllers\VisibleController.cs" />
@@ -216,11 +221,8 @@
     <Content Include="Content\images\sort_desc.png" />
     <Content Include="Content\images\sort_desc_disabled.png" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="CodeTemplates\EFModelFromDatabase\EntityType.cs.t4" />
     <Content Include="CodeTemplates\EFModelFromDatabase\Context.cs.t4" />
     <Content Include="Areas\Project\Views\web.config" />
@@ -243,8 +245,14 @@
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Group\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\GroupType\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\GroupType\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\GroupType\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\GroupType\ConfirmDelete.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\dataTables.bootstrap.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -492,7 +500,9 @@
     <Content Include="Scripts\svgedit\touch.js" />
     <Content Include="Scripts\svgedit\units.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -558,9 +568,6 @@
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

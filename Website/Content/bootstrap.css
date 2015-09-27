@@ -190,6 +190,7 @@ th {
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
+    /*
   *,
   *:before,
   *:after {
@@ -263,6 +264,7 @@ th {
   .table-bordered td {
     border: 1px solid #ddd !important;
   }
+        */
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
@@ -3543,7 +3545,7 @@ tbody.collapse.in {
   bottom: 100%;
   margin-bottom: 2px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-right .dropdown-menu {
     right: 0;
     left: auto;
@@ -4073,12 +4075,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar {
     border-radius: 4px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-header {
     float: left;
   }
@@ -4095,7 +4097,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse.in {
   overflow-y: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -4135,7 +4137,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-right: -15px;
   margin-left: -15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
@@ -4219,7 +4221,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-toggle {
     display: none;
   }
@@ -4377,14 +4379,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-text {
     float: left;
     margin-right: 15px;
     margin-left: 15px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-left {
     float: left !important;
   }
