@@ -36,7 +36,7 @@ TO-DOS
 		editor.tool_scale = 1; // Dependent on icon size, so no need to make configurable?
 		editor.langChanged = false;
 		editor.showSaveWarning = false;
-		editor.storagePromptClosed = false; // For use with ext-storage.js
+		editor.storagePromptClosed = true; // For use with ext-storage.js
 
 		var svgCanvas, urldata,
 			isReady = false,

@@ -286,6 +286,7 @@
     <Content Include="Scripts\svgedit2-7\contextmenu\jquery.contextMenu.js" />
     <Content Include="Scripts\svgedit2-7\coords.js" />
     <Content Include="Scripts\svgedit2-7\draw.js" />
+    <Content Include="Scripts\svgedit2-7\embedapi-dom.js" />
     <Content Include="Scripts\svgedit2-7\embedapi.html" />
     <Content Include="Scripts\svgedit2-7\embedapi.js" />
     <Content Include="Scripts\svgedit2-7\extensions\closepath_icons.svg" />

@@ -120,10 +120,10 @@ TO-DOS
 				no_save_warning: false,
 				// PATH CONFIGURATION
 				// The following path configuration items are disallowed in the URL (as should any future path configurations)
-				imgPath: 'images/',
-				langPath: 'locale/',
-				extPath: 'extensions/',
-				jGraduatePath: 'jgraduate/images/',
+				imgPath: '/Scripts/svgedit2-7/images/',
+				langPath: '/Scripts/svgedit2-7/locale/',
+				extPath: '/Scripts/svgedit2-7/extensions/',
+				jGraduatePath: '/Scripts/svgedit2-7/jgraduate/images/',
 				// DOCUMENT PROPERTIES
 				// Change the following to a preference (already in the Document Properties dialog)?
 				dimensions: [640, 480],

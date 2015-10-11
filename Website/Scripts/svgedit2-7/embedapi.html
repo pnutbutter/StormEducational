@@ -43,7 +43,7 @@
         $('#load').click(loadSvg);
         $('#save').click(saveSvg);
 		$('body').append(
-			$('<iframe src="svg-editor.html?extensions=ext-xdomain-messaging.js' +
+			$('<iframe src="/Scripts/svgedit2-7/svg-editor.html?extensions=ext-xdomain-messaging.js' +
 				window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
 				'" width="900px" height="600px" id="svgedit" onload="initEmbed();"></iframe>'
 			)

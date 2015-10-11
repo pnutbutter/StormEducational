@@ -68,7 +68,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.FriendlyDefinition, htmlAttributes: new { @class = "control-label col-sm-12" })
                                         <div class="col-md-12">
-                                            @Html.TextAreaFor(model => model.FriendlyDefinition, new { @class = "form-control" } )
+                                            @Html.TextAreaFor(model => model.FriendlyDefinition, new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.FriendlyDefinition, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -78,115 +78,150 @@
                     </div>
                 </div>
             </div>
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            Day 2
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="form">
-                    <div class="container-fluid clearfix">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Sketch, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    
-                                    <div id="sketch-wrapper">
-                                        <a href="#" id="edit-sketch" class="btn btn-primary">Edit Sketch</a>
-                                        <div id="show-sketch">@Html.Raw(this.Model.Sketch)</div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Day 2
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form">
+                            <div class="container-fluid clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Sketch, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+
+                                            <div id="sketch-wrapper">
+                                                <a href="#" id="edit-sketch" class="btn btn-primary">Edit Sketch</a>
+                                                <div id="show-sketch">@Html.Raw(this.Model.Sketch)</div>
+                                            </div>
+                                            <div id="sketch-edit-wrapper">
+                                                <a href="#" id="save-sketch" class="btn btn-primary">Save Sketch</a>
+                                                <div id="svgeditwrapper">
+                                                </div>
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.Sketch, "", new { @class = "text-danger" })
                                         </div>
-                                        <div id="sketch-edit-wrapper">
-                                            <a href="#" id="save-sketch" class="btn btn-primary">Save Sketch</a>
-                                            <div id="svgeditwrapper">
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Adjective, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+                                            @Html.TextAreaFor(model => model.Adjective, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Adjective, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix container-fluid">
+                                <div class="col-sm-6">
+                                    <h3 class="col-sm-offset-2 col-sm-10">Noun</h3>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.NounSingular, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.NounSingular, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NounSingular, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.NounPlural, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.NounPlural, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NounPlural, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <h3 class="col-sm-offset-2 col-sm-10">Verb</h3>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VerbTenseTypeId, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                            <div class="col-md-12">
+                                                @Html.DropDownList("VerbTenseTypeId", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.VerbTenseTypeId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
-                                        @Html.ValidationMessageFor(model => model.Sketch, "", new { @class = "text-danger" })
                                     </div>
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Adjective, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    @Html.TextAreaFor(model => model.Adjective, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.Adjective, "", new { @class = "text-danger" })
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VerbTenseI, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.VerbTenseI, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.VerbTenseI, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VerbTenseYou, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.VerbTenseYou, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.VerbTenseYou, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VerbTenseHeSheIt, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.VerbTenseHeSheIt, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.VerbTenseHeSheIt, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VerbTenseWe, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.VerbTenseWe, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.VerbTenseWe, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VerbTenseYou2, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.VerbTenseYou2, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.VerbTenseYou2, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.VerbTenseThey, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                            <div class="col-md-12">
+                                                @Html.EditorFor(model => model.VerbTenseThey, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.VerbTenseThey, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="clearfix container-fluid">
-                        <div class="col-sm-6">
-                            <h3 class="col-sm-offset-2 col-sm-10">Noun</h3>
 
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NounSingular, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    @Html.EditorFor(model => model.NounSingular, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NounSingular, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.NounPlural, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    @Html.EditorFor(model => model.NounPlural, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NounPlural, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <h3 class="col-sm-offset-2 col-sm-10">Verb</h3>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Day 3
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form">
                             <div class="col-sm-12">
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.VerbTenseTypeId, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                    <div class="col-md-12">
-                                        @Html.DropDownList("VerbTenseTypeId", null, htmlAttributes: new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.VerbTenseTypeId, "", new { @class = "text-danger" })
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Synonym, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.Synonym, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Synonym, "", new { @class = "text-danger" })
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.VerbTenseI, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                    <div class="col-md-12">
-                                        @Html.EditorFor(model => model.VerbTenseI, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.VerbTenseI, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.VerbTenseYou, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                    <div class="col-md-12">
-                                        @Html.EditorFor(model => model.VerbTenseYou, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.VerbTenseYou, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.VerbTenseHeSheIt, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                    <div class="col-md-12">
-                                        @Html.EditorFor(model => model.VerbTenseHeSheIt, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.VerbTenseHeSheIt, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.VerbTenseWe, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                    <div class="col-md-12">
-                                        @Html.EditorFor(model => model.VerbTenseWe, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.VerbTenseWe, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.VerbTenseYou2, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                    <div class="col-md-12">
-                                        @Html.EditorFor(model => model.VerbTenseYou2, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.VerbTenseYou2, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.VerbTenseThey, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                    <div class="col-md-12">
-                                        @Html.EditorFor(model => model.VerbTenseThey, new { htmlAttributes = new { @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.VerbTenseThey, "", new { @class = "text-danger" })
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Antonym, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.Antonym, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Antonym, "", new { @class = "text-danger" })
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -194,93 +229,58 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            Day 3
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="form">
-                    <div class="col-sm-12">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Synonym, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    @Html.EditorFor(model => model.Synonym, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Synonym, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Antonym, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    @Html.EditorFor(model => model.Antonym, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Antonym, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Day 4
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            Day 4
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="form">
-                    <div class="col-sm-12">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Sentence, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    @Html.TextAreaFor(model => model.Sentence, new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.Sentence, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.Analogy, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-md-12">
-                                    @Html.EditorFor(model => model.Analogy, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.Analogy, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                @Html.LabelFor(model => model.WordArray, htmlAttributes: new { @class = "control-label col-sm-12" })
-                                <div class="col-sm-10">
-                                    @Html.TextBox("word-array-input", String.Empty, new { @class = "form-control" })
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="#" id="add-word-array" class="btn btn-primary btn-sm col-sm-12">+Add</a>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form">
+                            <div class="col-sm-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Sentence, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+                                            @Html.TextAreaFor(model => model.Sentence, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Sentence, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-sm-12">
-                                    @Html.ValidationMessageFor(model => model.WordArray, "", new { @class = "text-danger" })
-                                    @Html.HiddenFor(model => model.WordArray)
-                                    <div id="word-array" class="word-array-wrapper">
-                                        
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Analogy, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-md-12">
+                                            @Html.EditorFor(model => model.Analogy, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Analogy, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.WordArray, htmlAttributes: new { @class = "control-label col-sm-12" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBox("word-array-input", String.Empty, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <a href="#" id="add-word-array" class="btn btn-primary btn-sm col-sm-12">+Add</a>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            @Html.ValidationMessageFor(model => model.WordArray, "", new { @class = "text-danger" })
+                                            @Html.HiddenFor(model => model.WordArray)
+                                            <div id="word-array" class="word-array-wrapper">
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
-
+                    <!-- /.row (nested) -->
                 </div>
+                <!-- /.panel-body -->
             </div>
-            <!-- /.row (nested) -->
-        </div>
-        <!-- /.panel-body -->
-    </div>
                         <!-- /.panel -->
             <div class="form">
                 <div class="col-sm-12">
@@ -296,7 +296,7 @@
         }
     </div>
     <!-- /.col-lg-12 -->
-    </div>
+</div>
 
 @section copyright{
     Form &copy; @DateTime.Now.Year - Storm Educational
@@ -304,13 +304,14 @@
 @section Styles {
     @Styles.Render("~/Content/svgedit/styles")
 }
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-<script src="/Scripts/svgedit/embedapi.js" ></script>
-<script src="/Scripts/svgedit/embedapi-dom.js"></script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="/Scripts/svgedit/embedapi.js"></script>
+    <script src="/Scripts/svgedit2-7/embedapi-dom.js"></script>
 
 
-<script>
+
+    <script>
 
     $(document).ready(function () {
 
@@ -322,46 +323,47 @@
         @if(string.IsNullOrWhiteSpace(this.Model.Sketch))
         {
             @:$("#sketch-wrapper").hide();
-                @:$("#sketch-edit-wrapper").show();
-                @:$('#svgeditwrapper').append(
-                @:$('<iframe src="/Scripts/svgedit/svg-editor.html?extensions=ext-xdomain-messaging.js' +
-                @:window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
-                @:'" width="900px" height="600px" id="svgedit" onload="initEmbed();"></iframe>'
-                @:)
-            @:);
+                        @:$("#sketch-edit-wrapper").show();
+
+            @:$('#svgeditwrapper').append(
+                        @:$('<iframe src="/Scripts/svgedit2-7/svg-editor.html?extensions=ext-xdomain-messaging.js' +
+                        @:window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
+                        @:'" width="100%" height="600px" id="svgedit" onload="initEmbed();"></iframe>'
+                        @:)
+                    @:);
         }
         else
         {
             @:$("#sketch-wrapper").show();
-                                                    @:$("#sketch-edit-wrapper").hide();
-                                                }
-    });
+                                                            @:$("#sketch-edit-wrapper").hide();
+                                                        }
+
+        });
 
 
-
-    AddToWordArray = function () {
-        //alert($("#word-array-input").val());
-        if ($("#word-array-input").val().length > 0) {
-            $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i></a>");
-            $("#word-array-input").val('')
+        AddToWordArray = function () {
+            //alert($("#word-array-input").val());
+            if ($("#word-array-input").val().length > 0) {
+                $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i></a>");
+                $("#word-array-input").val('')
+            }
         }
-    }
 
-    $(document).on("click", "a.word-array-remove", function (e) {
-        e.preventDefault();
-        var value = $(this).attr("data-value");
-        console.log(value);
-        $(this).remove();
-    });
-
-    $(document).on('keyup keypress', "#word-array-input", function (e) {
-        var code = e.keyCode || e.which;
-        if (code == 13) {
+        $(document).on("click", "a.word-array-remove", function (e) {
             e.preventDefault();
-            AddToWordArray();
-            return false;
-        }
-    });
+            var value = $(this).attr("data-value");
+            console.log(value);
+            $(this).remove();
+        });
 
-        </script>
-    }
+        $(document).on('keyup keypress', "#word-array-input", function (e) {
+            var code = e.keyCode || e.which;
+            if (code == 13) {
+                e.preventDefault();
+                AddToWordArray();
+                return false;
+            }
+        });
+
+    </script>
+}
