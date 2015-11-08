@@ -33,8 +33,8 @@ $(function () {
         } else {
             $('#show-sketch').html('');
             $('#show-sketch').html(data);
-            $("#sketch-wrapper").show();
-            $("#sketch-edit-wrapper").hide();
+            //$("#sketch-wrapper").show();
+            //$("#sketch-edit-wrapper").hide();
             //$('#svgeditwrapper').html('');
             //alert(data);
         }
@@ -45,30 +45,10 @@ $(function () {
         svgCanvas.getSvgString()(handleSvgData);
     }
 
-
-    // Add event handlers
-    $("#edit-sketch").click(function (e) {
-        e.preventDefault();
-        $("#sketch-wrapper").hide();
-        $("#sketch-edit-wrapper").show();
-        //alert($('#svgedit').length);
-        if ($('#svgedit').length<1)
-        {
-        $('#svgeditwrapper').append(
-            $('<iframe class="embed-responsive-item" src="/Scripts/svgedit2-7/svg-editor.html?extensions=ext-xdomain-messaging.js' +
-                    window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
-                    '" width="100%" height="600px" id="svgedit" onload="initEmbed();"></iframe>'
-                )
-        );
-        }
-        if(svgCanvas)
-            svgCanvas.setSvgString($('#show-sketch').html());
-        
-    });
     $('#save-sketch').click(function (e) {
         e.preventDefault();
         svgCanvas.getSvgString()(handleSvgData);
-        
+        $('#myModal').modal('hide');
     });
 
     

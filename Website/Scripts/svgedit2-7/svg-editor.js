@@ -95,8 +95,7 @@ TO-DOS
 				'ext-grid.js',
 				'ext-polygon.js',
 				'ext-star.js',
-				'ext-panning.js',
-				'ext-storage.js'
+				'ext-panning.js'
 			],
 			defaultConfig = {
 				// Todo: svgcanvas.js also sets and checks: show_outside_canvas, selectNew; add here?
@@ -143,8 +142,8 @@ TO-DOS
 				// EXTENSION-RELATED (GRID)
 				showGrid: false, // Set by ext-grid.js
 				// EXTENSION-RELATED (STORAGE)
-				noStorageOnLoad: false, // Some interaction with ext-storage.js; prevent even the loading of previously saved local storage
-				forceStorage: false, // Some interaction with ext-storage.js; strongly discouraged from modification as it bypasses user privacy by preventing them from choosing whether to keep local storage or not
+				noStorageOnLoad: true, // Some interaction with ext-storage.js; prevent even the loading of previously saved local storage
+				forceStorage: true, // Some interaction with ext-storage.js; strongly discouraged from modification as it bypasses user privacy by preventing them from choosing whether to keep local storage or not
 				emptyStorageOnDecline: false // Used by ext-storage.js; empty any prior storage if the user declines to store
 			},
 			/**

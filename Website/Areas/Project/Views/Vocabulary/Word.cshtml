@@ -90,14 +90,30 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Sketch, htmlAttributes: new { @class = "control-label col-sm-12" })
                                         <div class="col-md-12">
-
-                                            <div id="sketch-wrapper">
-                                                <a href="#" id="edit-sketch" class="btn btn-primary">Edit Sketch</a>
-                                                <div id="show-sketch">@Html.Raw(this.Model.Sketch)</div>
-                                            </div>
                                             <div id="sketch-edit-wrapper">
-                                                <a href="#" id="save-sketch" class="btn btn-primary">Save Sketch</a>
-                                                <div id="svgeditwrapper">
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                                    Edit Sketch
+                                                </button>
+                                                <div id="show-sketch">@Html.Raw(this.Model.Sketch)</div>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                    <div class="modal-dialog" style="width: 100%" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title" id="myModalLabel">Edit Sketch</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div id="svgeditwrapper">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                <button type="button" id="save-sketch" class="btn btn-primary">Save changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             @Html.ValidationMessageFor(model => model.Sketch, "", new { @class = "text-danger" })
@@ -313,34 +329,26 @@
 
     <script>
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        $("#add-word-array").click(function (e) {
-            e.preventDefault();
-            AddToWordArray();
-        })
+            $("#add-word-array").click(function (e) {
+                e.preventDefault();
+                AddToWordArray();
+            });
 
-        @if(string.IsNullOrWhiteSpace(this.Model.Sketch))
-        {
-            @:$("#sketch-wrapper").hide();
-                        @:$("#sketch-edit-wrapper").show();
-
-            @:$('#svgeditwrapper').append(
-                        @:$('<iframe src="/Scripts/svgedit2-7/svg-editor.html?extensions=ext-xdomain-messaging.js' +
-                        @:window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
-                        @:'" width="100%" height="600px" id="svgedit" onload="initEmbed();"></iframe>'
-                        @:)
-                    @:);
-        }
-        else
-        {
-            @:$("#sketch-wrapper").show();
-                                                            @:$("#sketch-edit-wrapper").hide();
-                                                        }
-
+            var modalOpen = false;
+            $('#myModal').on('shown.bs.modal', function () {
+                if (!modalOpen) {
+                    modalOpen = true;
+                    $('#svgeditwrapper').append(
+                        $('<iframe src="/Scripts/svgedit2-7/svg-editor.html?extensions=ext-xdomain-messaging.js' +
+                        window.location.href.replace(/\?(.*)$/, '&$1') + // Append arguments to this file onto the iframe
+                    '" width="100%" height="600px" id="svgedit" onload="initEmbed();"></iframe>'
+                    )
+                    );
+                }
+            });
         });
-
-
         AddToWordArray = function () {
             //alert($("#word-array-input").val());
             if ($("#word-array-input").val().length > 0) {
