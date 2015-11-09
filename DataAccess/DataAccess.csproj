@@ -60,6 +60,7 @@
     <Compile Include="GroupRelation.cs" />
     <Compile Include="GroupSubscription.cs" />
     <Compile Include="GroupType.cs" />
+    <Compile Include="GroupView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Subscription.cs" />

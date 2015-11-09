@@ -18,7 +18,7 @@ namespace Website.Areas.Administration.Controllers
         {
             GroupIndex data = new GroupIndex();
 
-            data.ItemList = db.Groups.ToList();
+            data.ItemList = db.GroupViews.ToList();
             data.Message = Message;
        
             return View(data);

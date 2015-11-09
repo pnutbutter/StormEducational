@@ -10,6 +10,6 @@ namespace Website.Areas.Administration.Models.GroupData
     {
         public string Message { get; set; }
 
-        public List<Group> ItemList { get; set; }
+        public List<GroupView> ItemList { get; set; }
     }
 }
