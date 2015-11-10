@@ -47,13 +47,9 @@ namespace Website.Areas.Administration.Controllers
                 item.GroupName = data.GroupName;
                 item.IsActive = data.IsActive;
                 item.GroupTypeId = data.GroupTypeId;
-                //item.ChangeBy = this.User.Identity.Name;
-                // TODO: Gary - the above line is no longer pulling in my user name for some reason
-                item.ChangeBy = "Gary";
+                item.ChangeBy = this.User.Identity.Name;
                 item.ChangeDate = DateTime.Now;
-                //item.CreateBy = this.User.Identity.Name;
-                // TODO: Gary - the above line is no longer pulling in my user name for some reason
-                item.CreateBy = "Gary";
+                item.CreateBy = this.User.Identity.Name;
                 item.CreateDate = DateTime.Now;
 
                 db.Groups.Add(item);
@@ -94,9 +90,7 @@ namespace Website.Areas.Administration.Controllers
                 item.GroupName = data.GroupName;
                 item.IsActive = data.IsActive;
                 item.GroupTypeId = data.GroupTypeId;
-                //item.ChangeBy = this.User.Identity.Name;
-                // TODO: Gary - the above line is no longer pulling in my user name for some reason
-                item.ChangeBy = "Gary";
+                item.ChangeBy = this.User.Identity.Name;
                 item.ChangeDate = DateTime.Now;
 
                 db.Entry<Group>(item).State = EntityState.Modified;
@@ -134,9 +128,7 @@ namespace Website.Areas.Administration.Controllers
 
                 Group item = db.Groups.Find(data.GroupId);
                 item.IsActive = false;
-                //item.ChangeBy = this.User.Identity.Name;
-                // TODO: Gary - the above line is no longer pulling in my user name for some reason
-                item.ChangeBy = "Gary";
+                item.ChangeBy = this.User.Identity.Name;
                 item.ChangeDate = DateTime.Now;
 
                 db.Entry<Group>(item).State = EntityState.Modified;
