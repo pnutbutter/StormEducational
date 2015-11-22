@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\Controllers\GroupTypeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UserController.cs" />
     <Compile Include="Areas\Administration\Models\GroupData\GroupConfirmDelete.cs" />
     <Compile Include="Areas\Administration\Models\GroupData\GroupCreate.cs" />
     <Compile Include="Areas\Administration\Models\GroupData\GroupEdit.cs" />
@@ -176,6 +177,10 @@
     <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeCreate.cs" />
     <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeEdit.cs" />
     <Compile Include="Areas\Administration\Models\GroupTypeData\GroupTypeIndex.cs" />
+    <Compile Include="Areas\Administration\Models\UserData\UserConfirmDelete.cs" />
+    <Compile Include="Areas\Administration\Models\UserData\UserCreate.cs" />
+    <Compile Include="Areas\Administration\Models\UserData\UserEdit.cs" />
+    <Compile Include="Areas\Administration\Models\UserData\UserIndex.cs" />
     <Compile Include="Areas\AppAdmin\AppAdminAreaRegistration.cs" />
     <Compile Include="Areas\AppAdmin\Controllers\SchoolGroupController.cs" />
     <Compile Include="Areas\AppAdmin\Controllers\VisibleController.cs" />
@@ -255,6 +260,10 @@
     <Content Include="Areas\Administration\Views\Group\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Group\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Group\ConfirmDelete.cshtml" />
+    <Content Include="Areas\Administration\Views\User\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\User\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\User\ConfirmDelete.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
