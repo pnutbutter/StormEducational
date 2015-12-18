@@ -9,12 +9,16 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Website.Models;
+using Website.Models.AccountData;
+using DataAccess;
 
 namespace Website.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private DatabaseContext db = new DatabaseContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -133,6 +137,41 @@ namespace Website.Controllers
                     return View(model);
             }
         }
+
+        [AllowAnonymous]
+        public JsonResult SchoolSearch(string q)
+        {
+            SchoolSearch data = new SchoolSearch();
+            try
+            {
+                data.SchoolList = db.Groups.Where(g => g.GroupTypeId == 2 && g.GroupName.Contains(q)).ToList();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            var jsonData = from t in data.SchoolList select new { id = t.GroupId, name = t.GroupName };
+
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
+        [AllowAnonymous]
+        public JsonResult TeacherSearch(string q)
+        {
+            SchoolSearch data = new SchoolSearch();
+            try
+            {
+                data.SchoolList = db.Groups.Where(g => g.GroupTypeId == 2 && g.GroupName.Contains(q)).ToList();
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            var jsonData = from t in data.SchoolList select new { id = t.GroupId, name = t.GroupName };
+
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
 
         //
         // GET: /Account/Register

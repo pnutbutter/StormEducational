@@ -8,6 +8,7 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.GroupId)
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
@@ -15,6 +16,31 @@
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserTypeId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.RadioButtonFor(model => model.UserTypeId, 1) Student
+            @Html.RadioButtonFor(model => model.UserTypeId, 0) Teacher
+        </div>
+    </div>
+    <div id="school-select-input" class="form-group">
+        @Html.LabelFor(m => m.GroupId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <span id="school-name"></span>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#schoolModal">
+                Find School
+            </button>
+        </div>
+    </div>
+    <div id="teacher-select-input" class="form-group">
+        @Html.LabelFor(m => m.GroupId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <span id="teacher-name"></span>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#teacherModal">
+                Find Teacher
+            </button>
         </div>
     </div>
     <div class="form-group">
@@ -29,13 +55,171 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
     </div>
 }
-
+<!-- Modal -->
+<div class="modal fade" id="schoolModal" tabindex="-1" role="dialog" aria-labelledby="school-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="school-label">School Search</h4>
+            </div>
+            <div class="modal-body">
+                <form id="school-search-form" action="" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Search, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Search, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" id="school-search-button" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="school-search-wrapper">
+                    <p>Results</p>
+                    <table class="table table-striped" id="school-search-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="school-search-results"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="teacherModal" tabindex="-1" role="dialog" aria-labelledby="teacher-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="teacher-label">Teacher Search</h4>
+            </div>
+            <div class="modal-body">
+                <form id="teacher-search-form" action="" class="form-horizontal" role="form">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Search, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Search, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" id="teacher-search-button" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="teacher-search-wrapper">
+                    <p>Results</p>
+                    <table class="table table-striped" id="teacher-search-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teacher-search-results"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    $(document).ready(function () {
+        $("#school-search-wrapper").hide();
+        $("#school-select-input").hide();
+        $("#teacher-search-wrapper").hide();
+        $("#teacher-select-input").hide();
+
+        $('input[name=UserTypeId]').click(function (e) {
+            if ($('input[name=UserTypeId]:checked').val() == 0) {
+                $("#school-select-input").show();
+                $("#teacher-select-input").hide();
+            } else {
+                $("#school-select-input").hide();
+                $("#teacher-select-input").show();
+            }
+        })
+
+        $('#teacher-search-button').click(function (e) {
+            e.preventDefault();
+            SearchTeachers();
+        })
+
+        $('#teacher-search-form').submit(function (e) {
+            e.preventDefault();
+            SearchTeachers();
+        });
+
+        $('#school-search-button').click(function (e) {
+            e.preventDefault();
+            SearchSchools();
+        })
+
+        $('#school-search-form').submit(function (e) {
+            e.preventDefault();
+            SearchSchools();
+        });
+
+    });
+    SearchSchools = function () {
+        $.ajax({
+            dataType: "json",
+            url: '@Url.Action("SchoolSearch","Account")?q=' + $('#Search').val(),
+                success: function (data) {
+                    $("#school-search-wrapper").show();
+                    $("#school-search-results").html("");
+                    $.each(data, function () {
+                        $("#school-search-results").append("<tr><td><a href=\"#\" class=\"btn btn-primary school-select\" data-id=\"" + this['id'] + "\" data-name=\"" + this['name'] + "\">Select</a></td><td>" + this['name'] + "</td></tr>");
+                    });
+
+                }
+            });
+        }
+
+        SearchTeachers = function () {
+            $.ajax({
+                dataType: "json",
+                url: '@Url.Action("TeacherSearch","Account")?q=' + $('#Search').val(),
+                success: function (data) {
+                    $("#teacher-search-wrapper").show();
+                    $("#teacher-search-results").html("");
+                    $.each(data, function () {
+                        $("#teacher-search-results").append("<tr><td><a href=\"#\" class=\"btn btn-primary teacher-select\" data-id=\"" + this['id'] + "\" data-name=\"" + this['name'] + "\">Select</a></td><td>" + this['name'] + "</td><td>" + this['school'] + "</td></tr>");
+                    });
+
+                }
+            });
+        }
+        $('#school-search-results').on('click', '.school-select', function (e) {
+            e.preventDefault();
+            $('#GroupId').val($(this).attr("data-id"));
+            $('#school-name').html($(this).attr("data-name"));
+            $('#schoolModal').modal('toggle');
+        });
+        $('#teacher-search-results').on('click', '.teacher-select', function (e) {
+            e.preventDefault();
+            $('#GroupId').val($(this).attr("data-id"));
+            $('#teacher-name').html($(this).attr("data-name"));
+            $('#teacherModal').modal('toggle');
+        });
+
+    </script>
 }

@@ -217,11 +217,13 @@
     <Compile Include="Controllers\AssignmentsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountData\SchoolSearch.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AssignmentsData\AssignmentsIndex.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -872,6 +874,7 @@
     <Folder Include="Areas\AppAdmin\Views\Shared\" />
     <Folder Include="Areas\Project\Views\Shared\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Group\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
