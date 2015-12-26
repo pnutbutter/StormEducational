@@ -1,12 +1,12 @@
-﻿@model Website.Areas.GroupAdmin.Models.SchoolData.SchoolIndex
+﻿@model Website.Areas.GroupAdmin.Models.SchoolAdminData.SchoolAdminIndex
 @{
-    ViewBag.Title = "Schools";
+    ViewBag.Title = "School Admins";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Schools</h1>
+        <h1 class="page-header">School Admins</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -20,12 +20,13 @@
             </div>
         }
         <div class="text-center col-lg-12 pad-1">
-            <a class="btn btn-lg btn-primary" href="@Url.Action("Create","School", new {Area="GroupAdmin"})">Create School</a>
+            <a class="btn btn-lg btn-primary" href="@Url.Action("Create","SchoolAdmin", new {Area="GroupAdmin"})">Create School Admin </a>
         </div>
         <table class="table table-striped table-bordered" cellspacing="0">
             <thead>
-                <tr>  
-                    <th>School Name</th>
+                <tr>
+                    <th>Admin Name</th>
+                    <th>Email</th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,11 +35,14 @@
                 {
                     <tr>
                         <td>
-                            @this.Model.ItemList[i].GroupName
+                            @this.Model.ItemList[i].LastName , @this.Model.ItemList[i].FirstName
+                        </td>
+                        <td>
+                            @*@this.Model.ItemList[i].Email*@
                         </td>
                         <td class="text-right">
-                            <a class="btn btn-primary" href="@Url.Action("Index", "SchoolAdmin", new { Area = "GroupAdmin", id = this.Model.ItemList[i].GroupId })">School Admins</a>
-                            <a class="btn btn-primary" href="@Url.Action("Edit", "School", new { Area = "GroupAdmin", id = this.Model.ItemList[i].GroupId })">Edit</a>
+                            <a class="btn btn-primary" href="@Url.Action("Edit", "SchoolAdmin", new { Area = "GroupAdmin", id = this.Model.ItemList[i].GroupId })">Edit</a>
+                            <a class="btn btn-primary" href="@Url.Action("Edit", "SchoolAdmin", new { Area = "GroupAdmin", id = this.Model.ItemList[i].GroupId })">Delete</a>
                         </td>
                     </tr>
                 }

@@ -35,6 +35,7 @@ namespace DataAccess
         public virtual DbSet<WordArray> WordArrays { get; set; }
         public virtual DbSet<UserAssignmentView> UserAssignmentViews { get; set; }
         public virtual DbSet<GroupView> GroupViews { get; set; }
+        public virtual DbSet<UserRoleGroupView> UserRoleGroupViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -192,6 +192,7 @@
     <Compile Include="Areas\Administration\Controllers\GroupController.cs" />
     <Compile Include="Areas\Administration\Models\AdminData\Index.cs" />
     <Compile Include="Areas\Administration\Models\GroupData\GroupIndex.cs" />
+    <Compile Include="Areas\GroupAdmin\Controllers\SchoolAdminController.cs" />
     <Compile Include="Areas\GroupAdmin\Controllers\SchoolController.cs" />
     <Compile Include="Areas\GroupAdmin\GroupAdminAreaRegistration.cs" />
     <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminConfirmDelete.cs" />
@@ -280,6 +281,7 @@
     <Content Include="Areas\GroupAdmin\Views\School\Index.cshtml" />
     <Content Include="Areas\GroupAdmin\Views\School\Create.cshtml" />
     <Content Include="Areas\GroupAdmin\Views\School\Edit.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\SchoolAdmin\Index.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

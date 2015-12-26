@@ -10,6 +10,6 @@ namespace Website.Areas.GroupAdmin.Models.SchoolAdminData
     {
         public string Message { get; set; }
 
-        public List<GroupView> ItemList { get; set; }
+        public List<UserRoleGroupView> ItemList { get; set; }
     }
 }
