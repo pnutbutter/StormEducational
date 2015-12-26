@@ -192,6 +192,14 @@
     <Compile Include="Areas\Administration\Controllers\GroupController.cs" />
     <Compile Include="Areas\Administration\Models\AdminData\Index.cs" />
     <Compile Include="Areas\Administration\Models\GroupData\GroupIndex.cs" />
+    <Compile Include="Areas\GroupAdmin\Controllers\SchoolController.cs" />
+    <Compile Include="Areas\GroupAdmin\GroupAdminAreaRegistration.cs" />
+    <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminConfirmDelete.cs" />
+    <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminCreate.cs" />
+    <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminIndex.cs" />
+    <Compile Include="Areas\GroupAdmin\Models\SchoolData\SchoolCreate.cs" />
+    <Compile Include="Areas\GroupAdmin\Models\SchoolData\SchoolEdit.cs" />
+    <Compile Include="Areas\GroupAdmin\Models\SchoolData\SchoolIndex.cs" />
     <Compile Include="Areas\Project\Controllers\VocabulariesController.cs" />
     <Compile Include="Areas\Project\Controllers\VocabularyController.cs" />
     <Compile Include="Areas\Project\Models\VocabularyData\Word.cs" />
@@ -213,6 +221,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\dataTables.bootstrap.css" />
@@ -264,6 +274,12 @@
     <Content Include="Areas\Administration\Views\User\Create.cshtml" />
     <Content Include="Areas\Administration\Views\User\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\User\ConfirmDelete.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\web.config" />
+    <Content Include="Areas\GroupAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\School\Index.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\School\Create.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\School\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
