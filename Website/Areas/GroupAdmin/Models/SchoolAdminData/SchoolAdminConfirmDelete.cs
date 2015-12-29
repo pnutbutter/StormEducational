@@ -8,15 +8,17 @@ namespace Website.Areas.GroupAdmin.Models.SchoolAdminData
 {
     public class SchoolAdminConfirmDelete
     {
-        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Display(Name = "Email Address")]
         public string Email { get; set; }
+
+        public decimal UserRoleId { get; set; }
+
+        public decimal GroupId { get; set; }
     }
 }

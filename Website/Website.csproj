@@ -282,6 +282,7 @@
     <Content Include="Areas\GroupAdmin\Views\School\Create.cshtml" />
     <Content Include="Areas\GroupAdmin\Views\School\Edit.cshtml" />
     <Content Include="Areas\GroupAdmin\Views\SchoolAdmin\Index.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\SchoolAdmin\ConfirmDelete.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

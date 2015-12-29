@@ -42,7 +42,7 @@
                         </td>
                         <td class="text-right">
                             <a class="btn btn-primary" href="@Url.Action("Edit", "SchoolAdmin", new { Area = "GroupAdmin", id = this.Model.ItemList[i].GroupId })">Edit</a>
-                            <a class="btn btn-primary" href="@Url.Action("Edit", "SchoolAdmin", new { Area = "GroupAdmin", id = this.Model.ItemList[i].GroupId })">Delete</a>
+                            <a class="btn btn-primary" href="@Url.Action("ConfirmDelete", "SchoolAdmin", new { Area = "GroupAdmin", UserRoleId = this.Model.ItemList[i].UserRoleId, GroupId = this.Model.ItemList[i].GroupId })">Delete</a>
                         </td>
                     </tr>
                 }
