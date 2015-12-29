@@ -8,17 +8,17 @@ namespace Website.Areas.Administration.Models.UserRoleData
 {
     public class UserRoleCreate
     {
-        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
         [Display(Name = "Role Type")]
         public int RoleId { get; set; }
+
+        public int UserId { get; set; }
 
         [Display(Name = "Is Active")]
         public bool IsActive { get; set; }

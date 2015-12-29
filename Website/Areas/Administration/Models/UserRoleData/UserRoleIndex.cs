@@ -11,5 +11,7 @@ namespace Website.Areas.Administration.Models.UserRoleData
         public string Message { get; set; }
 
         public List<UserRoleView> ItemList { get; set; }
+
+        public decimal UserId { get; set; }
     }
 }

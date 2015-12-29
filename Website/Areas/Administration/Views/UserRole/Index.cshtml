@@ -20,7 +20,7 @@
             </div>
         }
         <div class="text-center col-lg-12 pad-1">
-            <a class="btn btn-lg btn-primary" href="@Url.Action("Create","User", new {Area="Administration"})">Add User Role</a>
+            <a class="btn btn-lg btn-primary" href="@Url.Action("Create","UserRole", new {Area="Administration", UserId = this.Model.UserId})">Add User Role</a>
         </div>
         <table class="table table-striped table-bordered" cellspacing="0">
             <thead>
