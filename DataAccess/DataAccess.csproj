@@ -68,6 +68,7 @@
     <Compile Include="UserAssignment.cs" />
     <Compile Include="UserAssignmentView.cs" />
     <Compile Include="UserGroup.cs" />
+    <Compile Include="UserGroupView.cs" />
     <Compile Include="UserRelation.cs" />
     <Compile Include="UserRole.cs" />
     <Compile Include="UserRoleGroupView.cs" />

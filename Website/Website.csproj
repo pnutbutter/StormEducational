@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\Controllers\GroupTypeController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UserGroupController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserRoleController.cs" />
     <Compile Include="Areas\Administration\Models\GroupData\GroupConfirmDelete.cs" />
     <Compile Include="Areas\Administration\Models\GroupData\GroupCreate.cs" />
@@ -182,6 +183,9 @@
     <Compile Include="Areas\Administration\Models\UserData\UserCreate.cs" />
     <Compile Include="Areas\Administration\Models\UserData\UserEdit.cs" />
     <Compile Include="Areas\Administration\Models\UserData\UserIndex.cs" />
+    <Compile Include="Areas\Administration\Models\UserGroupData\UserGroupCreate.cs" />
+    <Compile Include="Areas\Administration\Models\UserGroupData\UserGroupEdit.cs" />
+    <Compile Include="Areas\Administration\Models\UserGroupData\UserGroupIndex.cs" />
     <Compile Include="Areas\Administration\Models\UserRoleData\UserRoleCreate.cs" />
     <Compile Include="Areas\Administration\Models\UserRoleData\UserRoleEdit.cs" />
     <Compile Include="Areas\Administration\Models\UserRoleData\UserRoleIndex.cs" />
@@ -290,6 +294,9 @@
     <Content Include="Areas\Administration\Views\UserRole\Index.cshtml" />
     <Content Include="Areas\Administration\Views\UserRole\Create.cshtml" />
     <Content Include="Areas\Administration\Views\UserRole\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\UserGroup\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\UserGroup\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\UserGroup\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

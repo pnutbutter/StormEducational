@@ -56,6 +56,7 @@
                             <a class="btn btn-default" href="@Url.Action("ConfirmDelete", "User", new { Area = "Administration", id = this.Model.ItemList[i].UserId })">Inactivate</a>
                             <a class="btn btn-primary" href="@Url.Action("Edit", "User", new { Area = "Administration", id = this.Model.ItemList[i].UserId })">Edit</a>
                             <a class="btn btn-primary" href="@Url.Action("Index", "UserRole", new { Area = "Administration", id = this.Model.ItemList[i].UserId })">Roles</a>
+                            <a class="btn btn-primary" href="@Url.Action("Index", "UserGroup", new { Area = "Administration", id = this.Model.ItemList[i].UserId })">Groups</a>
                         </td>
                     </tr>
                 }
