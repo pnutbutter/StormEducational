@@ -33,10 +33,8 @@ namespace DataAccess
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string ScreenName { get; set; }
-
-        public Guid Identifier { get; set; }
+        [StringLength(128)]
+        public string AspNetUserId { get; set; }
 
         public bool IsActive { get; set; }
 

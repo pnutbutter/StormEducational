@@ -71,6 +71,14 @@ namespace Website.Models
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -82,10 +90,10 @@ namespace Website.Models
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "School")]
-        public int GroupId { get; set; }
+        public int? GroupId { get; set; }
 
         [Display(Name = "Teacher")]
-        public int TeacherId { get; set; }
+        public int? TeacherId { get; set; }
 
         [Display(Name = "User Type")]
         public int UserTypeId { get; set; }

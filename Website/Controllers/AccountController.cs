@@ -158,16 +158,16 @@ namespace Website.Controllers
         [AllowAnonymous]
         public JsonResult TeacherSearch(string q)
         {
-            SchoolSearch data = new SchoolSearch();
+            TeacherSearch data = new TeacherSearch();
             try
             {
-                data.SchoolList = db.Groups.Where(g => g.GroupTypeId == 2 && g.GroupName.Contains(q)).ToList();
+                data.TeacherList = db.UserGroupViews.Where(g => g.GroupTypeId == 2 && (g.GroupName.Contains(q) || (g.FirstName+" "+g.LastName).Contains(q))).ToList();
             }
             catch (Exception e)
             {
                 throw;
             }
-            var jsonData = from t in data.SchoolList select new { id = t.GroupId, name = t.GroupName };
+            var jsonData = from t in data.TeacherList select new { id = t.UserId, name = t.FirstName + " " + t.LastName, school = t.GroupName };
 
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
@@ -197,6 +197,19 @@ namespace Website.Controllers
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                    User newUser = new User();
+                    newUser.ChangeBy = model.Email;
+                    newUser.ChangeDate = DateTime.UtcNow;
+                    newUser.CreateBy = model.Email;
+                    newUser.CreateDate = DateTime.UtcNow;
+                    newUser.FirstName = model.FirstName;
+                    newUser.LastName = model.LastName;
+                    newUser.AspNetUserId = user.Id;
+
+                    db.Users.Add(newUser);
+                    db.SaveChanges();
+
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

@@ -58,7 +58,6 @@ namespace Website.Areas.Administration.Controllers
                 User item = new User();
                 item.FirstName = data.FirstName;
                 item.LastName = data.LastName;
-                item.ScreenName = data.ScreenName;
                 item.IsActive = data.IsActive;
                 item.ChangeBy = this.User.Identity.Name;
                 item.ChangeDate = DateTime.Now;
@@ -83,7 +82,6 @@ namespace Website.Areas.Administration.Controllers
             User item = db.Users.Find(id);
             data.FirstName = item.FirstName;
             data.LastName = item.LastName;
-            data.ScreenName = item.ScreenName;
             data.IsActive = item.IsActive;
             data.UserId = item.UserId;
             return View(data);
@@ -103,7 +101,6 @@ namespace Website.Areas.Administration.Controllers
                 User item = db.Users.Find(data.UserId);
                 item.FirstName = data.FirstName;
                 item.LastName = data.LastName;
-                item.ScreenName = data.ScreenName;
                 item.IsActive = data.IsActive;
                 item.ChangeBy = this.User.Identity.Name;
                 item.ChangeDate = DateTime.Now;
@@ -125,7 +122,6 @@ namespace Website.Areas.Administration.Controllers
             User item = db.Users.Find(id);
             data.FirstName = item.FirstName;
             data.LastName = item.LastName;
-            data.ScreenName = item.ScreenName;
             data.IsActive = item.IsActive;
             data.UserId = item.UserId;
             return View(data);
