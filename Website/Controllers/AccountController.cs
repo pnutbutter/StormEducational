@@ -167,7 +167,7 @@ namespace Website.Controllers
             {
                 throw;
             }
-            var jsonData = from t in data.TeacherList select new { id = t.UserId, name = t.FirstName + " " + t.LastName, school = t.GroupName };
+            var jsonData = from t in data.TeacherList select new { id = t.UserId, name = t.FirstName + " " + t.LastName, school = t.GroupName, groupid=t.GroupId };
 
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
@@ -209,6 +209,47 @@ namespace Website.Controllers
 
                     db.Users.Add(newUser);
                     db.SaveChanges();
+
+                    if(model.UserTypeId==1)
+                    { 
+                        UserRelation newUserRelation = new UserRelation();
+                        newUserRelation.ChangeBy = model.Email;
+                        newUserRelation.ChangeDate = DateTime.UtcNow;
+                        newUserRelation.CreateBy = model.Email;
+                        newUserRelation.CreateDate = DateTime.UtcNow;
+                        newUserRelation.IsActive = true;
+                        newUserRelation.ParentUserId = model.TeacherId.GetValueOrDefault(0);
+                        newUserRelation.ChildUserId = newUser.UserId;
+
+                        db.UserRelations.Add(newUserRelation);
+                        db.SaveChanges();
+
+                        UserGroup newUserGroup = new UserGroup();
+                        newUserGroup.ChangeBy = model.Email;
+                        newUserGroup.ChangeDate = DateTime.UtcNow;
+                        newUserGroup.CreateBy = model.Email;
+                        newUserGroup.CreateDate = DateTime.UtcNow;
+                        newUserGroup.GroupId = model.GroupId;
+                        newUserGroup.IsActive = true;
+                        newUserGroup.UserId = newUser.UserId;
+
+                        db.UserGroups.Add(newUserGroup);
+                        db.SaveChanges();
+    
+                    }else if(model.UserTypeId==0)
+                    {
+                        UserGroup newUserGroup = new UserGroup();
+                        newUserGroup.ChangeBy = model.Email;
+                        newUserGroup.ChangeDate = DateTime.UtcNow;
+                        newUserGroup.CreateBy = model.Email;
+                        newUserGroup.CreateDate = DateTime.UtcNow;
+                        newUserGroup.GroupId = model.GroupId;
+                        newUserGroup.IsActive = true;
+                        newUserGroup.UserId = newUser.UserId;
+
+                        db.UserGroups.Add(newUserGroup);
+                        db.SaveChanges();
+                    }
 
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

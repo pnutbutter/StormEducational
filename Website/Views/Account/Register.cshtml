@@ -216,7 +216,7 @@
                     $("#teacher-search-wrapper").show();
                     $("#teacher-search-results").html("");
                     $.each(data, function () {
-                        $("#teacher-search-results").append("<tr><td><a href=\"#\" class=\"btn btn-primary teacher-select\" data-id=\"" + this['id'] + "\" data-name=\"" + this['name'] + "\">Select</a></td><td>" + this['name'] + "</td><td>" + this['school'] + "</td></tr>");
+                        $("#teacher-search-results").append("<tr><td><a href=\"#\" class=\"btn btn-primary teacher-select\" data-id=\"" + this['id'] + "\" data-group-id=\"" + this['groupid'] + "\" data-name=\"" + this['name'] + "\">Select</a></td><td>" + this['name'] + "</td><td>" + this['school'] + "</td></tr>");
                     });
 
                 }
@@ -231,6 +231,7 @@
         $('#teacher-search-results').on('click', '.teacher-select', function (e) {
             e.preventDefault();
             $('#TeacherId').val($(this).attr("data-id"));
+            $('#TeacherId').val($(this).attr("data-group-id"));
             $('#teacher-name').html($(this).attr("data-name"));
             $('#teacherModal').modal('toggle');
         });

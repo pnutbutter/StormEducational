@@ -90,7 +90,7 @@ namespace Website.Models
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "School")]
-        public int? GroupId { get; set; }
+        public int GroupId { get; set; }
 
         [Display(Name = "Teacher")]
         public int? TeacherId { get; set; }
