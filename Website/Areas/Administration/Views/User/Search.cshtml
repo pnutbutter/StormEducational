@@ -1,0 +1,33 @@
+﻿
+@model Website.Areas.Administration.Models.UserData.UserSearch
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Seach for Users</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-sm-12" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <h2 class="page-header alert alert-warning">@this.Model.Message</h2>
+        </div>
+
+        <div class="text-center col-lg-12 pad-1">
+            <a class="btn btn-lg btn-primary" href="@Url.Action("Index","User", new {Area="Administration", LastName=this.Model.LastName})">Search</a>
+        </div>
+    </div>
+</div>
+

@@ -183,6 +183,7 @@
     <Compile Include="Areas\Administration\Models\UserData\UserCreate.cs" />
     <Compile Include="Areas\Administration\Models\UserData\UserEdit.cs" />
     <Compile Include="Areas\Administration\Models\UserData\UserIndex.cs" />
+    <Compile Include="Areas\Administration\Models\UserData\UserSearch.cs" />
     <Compile Include="Areas\Administration\Models\UserGroupData\UserGroupCreate.cs" />
     <Compile Include="Areas\Administration\Models\UserGroupData\UserGroupEdit.cs" />
     <Compile Include="Areas\Administration\Models\UserGroupData\UserGroupIndex.cs" />
@@ -299,6 +300,7 @@
     <Content Include="Areas\Administration\Views\UserGroup\Index.cshtml" />
     <Content Include="Areas\Administration\Views\UserGroup\Create.cshtml" />
     <Content Include="Areas\Administration\Views\UserGroup\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\User\Search.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

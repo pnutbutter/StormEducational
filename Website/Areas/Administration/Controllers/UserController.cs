@@ -13,16 +13,29 @@ namespace Website.Areas.Administration.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
+        public ActionResult Search(UserSearch data)
+        {
+            //UserSearch data = new UserSearch();
+
+
+            return View(data);
+        }
+        
         // GET: Administration/User
-        public ActionResult Index(string Message)
+        public ActionResult Index(string Message, string LastName)
         {
             UserIndex data = new UserIndex();
 
-            data.ItemList = db.Users.ToList();
+            if (LastName == null)
+                data.ItemList = db.Users.ToList();
+            else 
+                data.ItemList = db.Users.Where(u => u.LastName.ToLower().Contains(LastName.ToLower())).ToList();
+
             data.Message = Message;
 
             return View(data);
         }
+
         [HttpGet]
         public ActionResult Create()
         {
