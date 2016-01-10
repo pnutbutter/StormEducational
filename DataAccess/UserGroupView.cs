@@ -25,11 +25,6 @@
         public string LastName { get; set; }
 
         [Key]
-        [Column(Order = 4)]
-        [StringLength(50)]
-        public string ScreenName { get; set; }
-
-        [Key]
         [Column(Order = 5)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserGroupId { get; set; }

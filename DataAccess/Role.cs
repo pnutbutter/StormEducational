@@ -9,6 +9,12 @@ namespace DataAccess
     [Table("Role")]
     public partial class Role
     {
+        public static int ADMIN = 1;
+        public static int SCHOOL_ADMIN = 2;
+        public static int DISTRICT_ADMIN = 3;
+        public static int TEACHER = 4;
+        public static int STUDENT = 5;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
         {
