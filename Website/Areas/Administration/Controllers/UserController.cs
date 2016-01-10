@@ -71,7 +71,7 @@ namespace Website.Areas.Administration.Controllers
             {
                 throw;
             }
-            return RedirectToAction("Index", new { Message = data.ScreenName + " Saved" });
+            return RedirectToAction("Index", new { Message = data.FirstName + " " + data.LastName + " Saved" });
         }
 
         [HttpGet]
@@ -112,7 +112,7 @@ namespace Website.Areas.Administration.Controllers
             {
                 throw;
             }
-            return RedirectToAction("Index", new { Message = data.ScreenName + " Edits Saved" });
+            return RedirectToAction("Index", new { Message = data.FirstName + " " + data.LastName + " Edits Saved" });
         }
 
         [HttpGet]
@@ -150,7 +150,7 @@ namespace Website.Areas.Administration.Controllers
             {
                 throw;
             }
-            return RedirectToAction("Index", new { Message = data.ScreenName + " Inactivated" });
+            return RedirectToAction("Index", new { Message = data.FirstName + " " + data.LastName + " Inactivated" });
         }
     }
 }

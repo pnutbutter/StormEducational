@@ -17,9 +17,6 @@ namespace Website.Areas.Administration.Models.UserData
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Display(Name = "Screen Name")]
-        public string ScreenName { get; set; }
-
         [Display(Name = "Is Active")]
         public bool IsActive { get; set; }
     }

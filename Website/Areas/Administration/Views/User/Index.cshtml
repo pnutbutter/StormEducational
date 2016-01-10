@@ -27,8 +27,6 @@
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Screen Name</th>
-                    <th>Identifier</th>
                     <th>Is Active</th>
                     <th></th>
                 </tr>
@@ -42,12 +40,6 @@
                         </td>
                         <td>
                             @this.Model.ItemList[i].LastName
-                        </td>
-                        <td>
-                            @this.Model.ItemList[i].ScreenName
-                        </td>
-                        <td>
-                            @this.Model.ItemList[i].Identifier
                         </td>
                         <td>
                             @(this.Model.ItemList[i].IsActive ? "Yes" : "No")
