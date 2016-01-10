@@ -20,7 +20,8 @@
             </div>
         }
         <div class="text-center col-lg-12 pad-1">
-            <a class="btn btn-lg btn-primary" href="@Url.Action("Create","SchoolAdmin", new {Area="GroupAdmin"})">Create School Admin </a>
+            <a class="btn btn-lg btn-primary" href="@Url.Action("Create","SchoolAdmin", new {Area="GroupAdmin"})">Assign User as School Admin </a>
+            <a class="btn btn-lg btn-primary" href="@Url.Action("Create","SchoolAdmin", new {Area="GroupAdmin"})">Send Email to new User(s) </a>
         </div>
         <table class="table table-striped table-bordered" cellspacing="0">
             <thead>
@@ -41,7 +42,6 @@
                             @*@this.Model.ItemList[i].Email*@
                         </td>
                         <td class="text-right">
-                            <a class="btn btn-primary" href="@Url.Action("Edit", "SchoolAdmin", new { Area = "GroupAdmin", id = this.Model.ItemList[i].GroupId })">Edit</a>
                             <a class="btn btn-primary" href="@Url.Action("ConfirmDelete", "SchoolAdmin", new { Area = "GroupAdmin", UserRoleId = this.Model.ItemList[i].UserRoleId, GroupId = this.Model.ItemList[i].GroupId })">Delete</a>
                         </td>
                     </tr>

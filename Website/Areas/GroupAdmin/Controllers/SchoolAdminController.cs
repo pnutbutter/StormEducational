@@ -26,6 +26,59 @@ namespace Website.Areas.GroupAdmin.Controllers
             return View(data);
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            SchoolAdminCreate data = new SchoolAdminCreate();
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "NameFull");
+            return View(data);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(SchoolAdminCreate data)
+        {
+            try
+            {
+                if (!this.ModelState.IsValid)
+                {
+                    return View(data);
+                }
+
+                //Relate user to group via UserGroup Table
+                UserGroup userGroupItem = new UserGroup();
+                userGroupItem.UserId = data.UserId;
+                userGroupItem.GroupId = data.GroupId;
+                userGroupItem.IsActive = true;
+                userGroupItem.ChangeBy = this.User.Identity.Name;
+                userGroupItem.ChangeDate = DateTime.Now;
+                userGroupItem.CreateBy = this.User.Identity.Name;
+                userGroupItem.CreateDate = DateTime.Now;
+
+                db.UserGroups.Add(userGroupItem);
+                db.SaveChanges();
+
+                //Relate User to role via UserRole table
+                UserRole userRoleItem = new UserRole();
+                userRoleItem.UserId = data.UserId;
+                userRoleItem.RoleId = data.RoleId;
+                userRoleItem.IsActive = true;
+                userRoleItem.ChangeBy = this.User.Identity.Name;
+                userRoleItem.ChangeDate = DateTime.Now;
+                userRoleItem.CreateBy = this.User.Identity.Name;
+                userRoleItem.CreateDate = DateTime.Now;
+
+                db.UserRoles.Add(userRoleItem);
+                db.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            return RedirectToAction("Index", new { Message = "Saved as School Administrator" });
+        }
+
 
         [HttpGet]
         public ActionResult ConfirmDelete(int UserRoleId, int GroupId)

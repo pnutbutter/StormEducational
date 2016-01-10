@@ -65,6 +65,7 @@
     <Compile Include="Role.cs" />
     <Compile Include="Subscription.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="User.Fullname.cs" />
     <Compile Include="UserAssignment.cs" />
     <Compile Include="UserAssignmentView.cs" />
     <Compile Include="UserGroup.cs" />
