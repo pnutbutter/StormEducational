@@ -231,7 +231,7 @@
         $('#teacher-search-results').on('click', '.teacher-select', function (e) {
             e.preventDefault();
             $('#TeacherId').val($(this).attr("data-id"));
-            $('#TeacherId').val($(this).attr("data-group-id"));
+            $('#GroupId').val($(this).attr("data-group-id"));
             $('#teacher-name').html($(this).attr("data-name"));
             $('#teacherModal').modal('toggle');
         });
