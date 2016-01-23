@@ -97,4 +97,15 @@
             </a>
         </div>
     </div>
+    <div class="col-sm-12">
+        <div>
+            Test: @Context.User.Identity.Name
+        </div>
+        <div>
+            @Context.User.IsInRole("Student")
+        </div>
+        <div>
+            @Context.User.IsInRole("Teacher")
+        </div>
+    </div>
 </div>

@@ -73,6 +73,7 @@
     <Compile Include="UserRelation.cs" />
     <Compile Include="UserRole.cs" />
     <Compile Include="UserRoleGroupView.cs" />
+    <Compile Include="UserRoleLookupView.cs" />
     <Compile Include="UserRoleView.cs" />
     <Compile Include="UserSubscription.cs" />
     <Compile Include="VerbTenseType.cs" />

@@ -38,6 +38,7 @@ namespace DataAccess
         public virtual DbSet<UserRoleGroupView> UserRoleGroupViews { get; set; }
         public virtual DbSet<UserRoleView> UserRoleViews { get; set; }
         public virtual DbSet<UserGroupView> UserGroupViews { get; set; }
+        public virtual DbSet<UserRoleLookupView> UserRoleLookupViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

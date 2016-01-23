@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using Website.Models;
 using Website.Models.AccountData;
 using DataAccess;
+using System.Collections.Generic;
+using Website.Models.Const;
 
 namespace Website.Controllers
 {
@@ -26,10 +28,11 @@ namespace Website.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            RoleManager = roleManager;
         }
 
         public ApplicationSignInManager SignInManager
@@ -54,6 +57,16 @@ namespace Website.Controllers
             {
                 _userManager = value;
             }
+        }
+
+        private ApplicationRoleManager _roleManager;
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return this._roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set { this._roleManager = value; }
         }
 
         //
