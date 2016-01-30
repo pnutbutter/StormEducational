@@ -891,6 +891,7 @@
     <Content Include="Scripts\svgedit2-7\js-hotkeys\README.md" />
     <Content Include="Scripts\svgedit2-7\svg-editor.manifest" />
     <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Shared\_LayoutUnauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
