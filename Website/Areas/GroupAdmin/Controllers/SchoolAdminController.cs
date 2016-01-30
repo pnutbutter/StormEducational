@@ -14,6 +14,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Administration/Group
+        [Authorize]
         public ActionResult Index(string Message, int id)
         {
             SchoolAdminIndex data = new SchoolAdminIndex();
@@ -28,6 +29,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Create(int GroupId)
         {
             SchoolAdminCreate data = new SchoolAdminCreate();
@@ -37,6 +39,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(SchoolAdminCreate data)
         {
@@ -83,6 +86,7 @@ namespace Website.Areas.GroupAdmin.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ActionResult ConfirmDelete(int UserRoleId, int GroupId)
         {
             SchoolAdminConfirmDelete data = new SchoolAdminConfirmDelete();
@@ -100,6 +104,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult ConfirmDelete(SchoolAdminConfirmDelete data)
         {

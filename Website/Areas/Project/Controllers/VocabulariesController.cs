@@ -15,6 +15,7 @@ namespace Website.Areas.Project.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Project/Vocabularies
+        [Authorize]
         public ActionResult Index()
         {
             var vocabularies = db.Vocabularies.Include(v => v.User).Include(v => v.VerbTenseType);
@@ -22,6 +23,7 @@ namespace Website.Areas.Project.Controllers
         }
 
         // GET: Project/Vocabularies/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace Website.Areas.Project.Controllers
         }
 
         // GET: Project/Vocabularies/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstName");
@@ -48,6 +51,7 @@ namespace Website.Areas.Project.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "VocabularyId,UserId,Word,PartOfSpeech,Etymology,Connotation,FriendlyDefinition,Adjective,NounSingular,NounPlural,VerbTenseTypeId,VerbTenseI,VerbTenseWe,VerbTenseYou,VerbTenseYou2,VerbTenseHeSheIt,VerbTenseThey,Synonym,Antonym,Sentance,Analogy,IsActive,CreateDate,CreateBy,ChangeDate,ChangeBy")] Vocabulary vocabulary)
         {
@@ -64,6 +68,7 @@ namespace Website.Areas.Project.Controllers
         }
 
         // GET: Project/Vocabularies/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -84,6 +89,7 @@ namespace Website.Areas.Project.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "VocabularyId,UserId,Word,PartOfSpeech,Etymology,Connotation,FriendlyDefinition,Adjective,NounSingular,NounPlural,VerbTenseTypeId,VerbTenseI,VerbTenseWe,VerbTenseYou,VerbTenseYou2,VerbTenseHeSheIt,VerbTenseThey,Synonym,Antonym,Sentance,Analogy,IsActive,CreateDate,CreateBy,ChangeDate,ChangeBy")] Vocabulary vocabulary)
         {
@@ -99,6 +105,7 @@ namespace Website.Areas.Project.Controllers
         }
 
         // GET: Project/Vocabularies/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -115,6 +122,7 @@ namespace Website.Areas.Project.Controllers
 
         // POST: Project/Vocabularies/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

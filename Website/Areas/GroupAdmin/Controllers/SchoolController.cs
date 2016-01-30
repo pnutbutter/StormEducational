@@ -14,6 +14,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Administration/Group
+        [Authorize]
         public ActionResult Index(string Message)
         {
             SchoolIndex data = new SchoolIndex();
@@ -25,6 +26,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Create()
         {
             SchoolCreate data = new SchoolCreate();
@@ -33,6 +35,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create(SchoolCreate data)
         {
@@ -68,6 +71,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Edit(int id)
         {
             SchoolEdit data = new SchoolEdit();
@@ -80,6 +84,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SchoolEdit data)
         {

@@ -13,6 +13,7 @@ namespace Website.Areas.Project.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Project/Vocabulary
+        [Authorize]
         public ActionResult Word(int? id)
         {
             Word data = new Word();
