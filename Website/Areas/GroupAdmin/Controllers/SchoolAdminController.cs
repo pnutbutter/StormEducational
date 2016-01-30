@@ -14,7 +14,7 @@ namespace Website.Areas.GroupAdmin.Controllers
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Administration/Group
-        public ActionResult Index(string Message, decimal id)
+        public ActionResult Index(string Message, int id)
         {
             SchoolAdminIndex data = new SchoolAdminIndex();
 
@@ -22,15 +22,17 @@ namespace Website.Areas.GroupAdmin.Controllers
             data.ItemList = db.UserRoleGroupViews.Where(u => u.RoleId == 2 && u.GroupId == id).ToList();
 
             data.Message = Message;
+            data.GroupId = id;
 
             return View(data);
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int GroupId)
         {
             SchoolAdminCreate data = new SchoolAdminCreate();
             ViewBag.UserId = new SelectList(db.Users, "UserId", "NameFull");
+            data.GroupId = GroupId;
             return View(data);
         }
 
@@ -61,7 +63,7 @@ namespace Website.Areas.GroupAdmin.Controllers
                 //Relate User to role via UserRole table
                 UserRole userRoleItem = new UserRole();
                 userRoleItem.UserId = data.UserId;
-                userRoleItem.RoleId = data.RoleId;
+                userRoleItem.RoleId = 2;
                 userRoleItem.IsActive = true;
                 userRoleItem.ChangeBy = this.User.Identity.Name;
                 userRoleItem.ChangeDate = DateTime.Now;
@@ -76,7 +78,7 @@ namespace Website.Areas.GroupAdmin.Controllers
             {
                 throw;
             }
-            return RedirectToAction("Index", new { Message = "Saved as School Administrator" });
+            return RedirectToAction("Index", new { Message = "Saved User as School Administrator", id = data.GroupId });
         }
 
 
