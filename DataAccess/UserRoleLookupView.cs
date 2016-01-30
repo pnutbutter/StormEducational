@@ -13,14 +13,11 @@
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int UserId { get; set; }
 
-
         [StringLength(50)]
         public string FirstName { get; set; }
-
  
         [StringLength(50)]
         public string LastName { get; set; }
-
 
         [StringLength(128)]
         public string AspNetUserId { get; set; }
