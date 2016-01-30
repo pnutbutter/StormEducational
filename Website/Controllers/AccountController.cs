@@ -109,6 +109,8 @@ namespace Website.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    if (string.IsNullOrWhiteSpace(returnUrl))
+                        return RedirectToLocal("/Dashboard");
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
