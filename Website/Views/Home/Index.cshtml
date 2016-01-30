@@ -3,14 +3,17 @@
     Layout = "~/Views/Shared/_LayoutUnauthorized.cshtml";
 }
 <div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Teaches.me</h1>
+    <div class="col-sm-6">
+        <div class="jumbotron jumbo-home">
+            <h1>Get Started!</h1>
+            <p>
+                Teaches.me is proud to bring StormEducational's engaging vocabulary homework online.
+            </p>
+            <p class="text-center"><a class="btn btn-success btn-lg" href="@Url.Action("Register", "Account", new { Area="" })" role="button">Teacher &amp; Student Registration</a> or <a class="btn btn-success btn-lg" href="@Url.Action("Login", "Account", new { Area = "" })">Log in</a></p>
+        </div>
+        
     </div>
-    <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-<div class="row">
-    <div class="col-sm-12">
-        To get started with StormEducational vocabular, please register or log in.
+    <div class="col-sm-6">
+        <img style="width: 100%; border-radius: 5em;" src="~/Content/images/stock-photo-education-elementary-school-learning-technology-and-people-concept-group-of-school-kids-with-238623745.jpg" alt="kids working in tablets" />
     </div>
 </div>
