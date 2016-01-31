@@ -223,6 +223,7 @@
     <Compile Include="Areas\GroupAdmin\GroupAdminAreaRegistration.cs" />
     <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminConfirmDelete.cs" />
     <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminCreate.cs" />
+    <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminEmail.cs" />
     <Compile Include="Areas\GroupAdmin\Models\SchoolAdminData\SchoolAdminIndex.cs" />
     <Compile Include="Areas\GroupAdmin\Models\SchoolData\SchoolCreate.cs" />
     <Compile Include="Areas\GroupAdmin\Models\SchoolData\SchoolEdit.cs" />
