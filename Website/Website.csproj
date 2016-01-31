@@ -231,6 +231,12 @@
     <Compile Include="Areas\Project\Controllers\VocabularyController.cs" />
     <Compile Include="Areas\Project\Models\VocabularyData\Word.cs" />
     <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
+    <Compile Include="Areas\Teacher\Controllers\AssignmentsController.cs" />
+    <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsCreate.cs" />
+    <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsDelete.cs" />
+    <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsEdit.cs" />
+    <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsIndex.cs" />
+    <Compile Include="Areas\Teacher\TeacherAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssignmentsController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -322,6 +328,7 @@
     <Content Include="Areas\Administration\Views\UserGroup\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\User\Search.cshtml" />
     <Content Include="Areas\GroupAdmin\Views\SchoolAdmin\Create.cshtml" />
+    <Content Include="Areas\Teacher\Views\web.config" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -898,6 +905,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AppAdmin\Views\Shared\" />
     <Folder Include="Areas\Project\Views\Shared\" />
+    <Folder Include="Areas\Teacher\Views\Assignments\" />
+    <Folder Include="Areas\Teacher\Views\Shared\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Group\" />
   </ItemGroup>
