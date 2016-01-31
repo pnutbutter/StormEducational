@@ -9,7 +9,7 @@ using Website.Controllers;
 
 namespace Website.Areas.Teacher.Controllers
 {
-    public class AssignmentsController : BaseController
+    public class TeacherAssignmentsController : BaseController
     {
         private DatabaseContext db = new DatabaseContext();
 

@@ -232,7 +232,7 @@
     <Compile Include="Areas\Project\Controllers\VocabularyController.cs" />
     <Compile Include="Areas\Project\Models\VocabularyData\Word.cs" />
     <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
-    <Compile Include="Areas\Teacher\Controllers\AssignmentsController.cs" />
+    <Compile Include="Areas\Teacher\Controllers\TeacherAssignmentsController.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsCreate.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsDelete.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsEdit.cs" />
@@ -906,8 +906,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AppAdmin\Views\Shared\" />
     <Folder Include="Areas\Project\Views\Shared\" />
-    <Folder Include="Areas\Teacher\Views\Assignments\" />
     <Folder Include="Areas\Teacher\Views\Shared\" />
+    <Folder Include="Areas\Teacher\Views\TeacherAssignments\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Group\" />
   </ItemGroup>

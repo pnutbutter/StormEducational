@@ -76,6 +76,7 @@
     <Compile Include="UserRoleLookupView.cs" />
     <Compile Include="UserRoleView.cs" />
     <Compile Include="UserSubscription.cs" />
+    <Compile Include="UserView.cs" />
     <Compile Include="VerbTenseType.cs" />
     <Compile Include="Vocabulary.cs" />
     <Compile Include="VocabularyAssignment.cs" />
