@@ -1,0 +1,46 @@
+﻿@model Website.Areas.GroupAdmin.Models.SchoolAdminData.SchoolAdminEmail
+@{
+    ViewBag.Title = "Send Email to New User(s)";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Send Email to New User(s)</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-verticle">
+                <div class="container-fluid clearfix">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EmailList, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.EmailList, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.EmailList, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid clearfix pad-1">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                <a class="btn btn-default" href="@Url.Action("Index", "User", new { Area = "Administration" })">Cancel</a>
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+

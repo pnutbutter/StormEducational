@@ -323,6 +323,7 @@
     <Content Include="Areas\Administration\Views\UserGroup\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\User\Search.cshtml" />
     <Content Include="Areas\GroupAdmin\Views\SchoolAdmin\Create.cshtml" />
+    <Content Include="Areas\GroupAdmin\Views\SchoolAdmin\Email.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
