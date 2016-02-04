@@ -56,7 +56,8 @@ namespace Website.Areas.Project.Controllers
                 data.VocabularyId = item.VocabularyId;
                 data.UserId = item.UserId;
                 data.VocabWord = item.Word;
-                //TODO: figure out word array and sketch
+                data.Sketch = item.Sketch;
+                //TODO: figure out word array
             }
 
             ViewBag.VerbTenseTypeId = new SelectList(db.VerbTenseTypes, "VerbTenseTypeId", "VerbTenseTypeName");
@@ -107,6 +108,7 @@ namespace Website.Areas.Project.Controllers
                 item.VocabularyId = data.VocabularyId;
                 item.UserId = data.UserId;
                 item.Word = data.VocabWord;
+                item.Sketch = data.Sketch;
                 //TODO: figure out word array and sketch
 
                 item.ChangeBy = this.User.Identity.Name;

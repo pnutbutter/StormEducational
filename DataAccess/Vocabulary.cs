@@ -83,6 +83,8 @@ namespace DataAccess
         [StringLength(50)]
         public string ChangeBy { get; set; }
 
+        public string Sketch { get; set; }
+
         public virtual User User { get; set; }
 
         public virtual VerbTenseType VerbTenseType { get; set; }

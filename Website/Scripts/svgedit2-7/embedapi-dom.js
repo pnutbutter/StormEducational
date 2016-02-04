@@ -33,6 +33,7 @@ $(function () {
         } else {
             $('#show-sketch').html('');
             $('#show-sketch').html(data);
+            $('#Sketch').val(data);
             //$("#sketch-wrapper").show();
             //$("#sketch-edit-wrapper").hide();
             //$('#svgeditwrapper').html('');

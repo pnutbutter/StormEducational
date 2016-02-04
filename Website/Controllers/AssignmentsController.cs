@@ -7,12 +7,14 @@ using Website.Models.AssignmentsData;
 
 namespace Website.Controllers
 {
-    public class AssignmentsController : Controller
+    public class AssignmentsController : BaseController
     {
         // GET: Assignments
         public ActionResult Index()
         {
             AssignmentsIndex data = new AssignmentsIndex();
+            int userid = GetCurrentUser().UserId;
+            data.ItemList = db.Vocabularies.Where(v => v.UserId == userid).ToList();
 
             return View(data);
         }

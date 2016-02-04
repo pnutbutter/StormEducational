@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Website.Areas.Project.Models.VocabularyData
 {
@@ -31,6 +32,7 @@ namespace Website.Areas.Project.Models.VocabularyData
         [Display(Name = "Friendly Definition")]
         public string FriendlyDefinition { get; set; }
 
+        [AllowHtml]
         public string Sketch { get; set; }
 
         [Display(Name="Sketch Name")]
