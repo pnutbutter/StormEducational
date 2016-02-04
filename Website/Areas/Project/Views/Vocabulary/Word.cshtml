@@ -284,7 +284,6 @@
                                         </div>
                                         <div class="col-sm-12">
                                             @Html.ValidationMessageFor(model => model.WordArray, "", new { @class = "text-danger" })
-                                            @Html.HiddenFor(model => model.WordArray)
                                             <div id="word-array" class="word-array-wrapper">
 
                                             </div>
@@ -361,7 +360,7 @@
         AddToWordArray = function () {
             //alert($("#word-array-input").val());
             if ($("#word-array-input").val().length > 0) {
-                $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i></a>");
+                $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i><input name=\"WordArray\" id=\"WordArray\" type=\"hidden\" value=\"" + $("#word-array-input").val() + "\"></a>");
                 $("#word-array-input").val('')
             }
         }

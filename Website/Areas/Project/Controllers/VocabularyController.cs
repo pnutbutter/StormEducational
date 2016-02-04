@@ -123,7 +123,13 @@ namespace Website.Areas.Project.Controllers
                     item.CreateDate = DateTime.Now;
                     db.Vocabularies.Add(item);
                 }
-                db.SaveChanges();
+                for (int i = 0; i < data.WordArray.Length; i++ )
+                {
+                    //TODO: check if word exists, if not add it
+                    //TODO: assign word to this record
+                }
+
+                    db.SaveChanges();
             }
             catch (DbEntityValidationException e)
             {
