@@ -29,17 +29,23 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Edify", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#side-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Teaches.me", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right navbar-collapse" id="top-nav">
                 <li>
                     @this.User.Identity.Name
                 </li>
@@ -254,50 +260,50 @@
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+                <div class="sidebar-nav navbar-collapse" id="side-nav">
                     <ul class="nav" id="side-menu">
                         <!--<li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
 
-                        </li>-->
+                    </li>-->
                         <li>
                             <a href="@Url.Action("Index", "Dashboard", new { Area="" })"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         @if (Context.User.IsInRole("Student"))
-                        { 
-                        <li>
-                            <a href="@Url.Action("Index", "Assignments", new { Area="" })"><i class="fa fa-list fa-fw"></i> Assignments</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Team Projects</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Grades</a>
-                        </li>
+                        {
+                            <li>
+                                <a href="@Url.Action("Index", "Assignments", new { Area="" })"><i class="fa fa-list fa-fw"></i> Assignments</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-users fa-fw"></i> Team Projects</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Grades</a>
+                            </li>
                         }
                         @if (Context.User.IsInRole("Admin"))
                         {
-                        <li>
-                            <a href="@Url.Action("Index", "Visible", new { Area="AppAdmin" })"><i class="fa fa-power-off fa-fw"></i> App Admin</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-lock fa-fw"></i> Admin<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="@Url.Action("Index", "Admin", new { Area="Administration" })">Group</a>
-                                </li>
-                                <li>
-                                    <a href="@Url.Action("Index", "GroupType", new { Area="Administration" })">Group Type</a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Visible", new { Area="AppAdmin" })"><i class="fa fa-power-off fa-fw"></i> App Admin</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-lock fa-fw"></i> Admin<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Admin", new { Area="Administration" })">Group</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "GroupType", new { Area="Administration" })">Group Type</a>
+                                    </li>
+                                </ul>
+                            </li>
                         }
                     </ul>
 
