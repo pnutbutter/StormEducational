@@ -88,5 +88,7 @@ namespace Website.Areas.Project.Models.VocabularyData
 
         [Display(Name = "Word Array")]
         public string[] WordArray { get; set; }
+
+        public int[] WordArrayIds { get; set; }
     }
 }

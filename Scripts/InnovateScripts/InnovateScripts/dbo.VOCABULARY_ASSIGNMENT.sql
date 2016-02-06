@@ -1,3 +1,4 @@
+Drop table [dbo].[VocabularyAssignment];
 CREATE TABLE [dbo].[VocabularyAssignment] (
     [VocabularyAssignmentId]		 INT              IDENTITY (1, 1) NOT NULL,
 	[AssignmentId]	 INT			  NOT NULL,
@@ -9,5 +10,5 @@ CREATE TABLE [dbo].[VocabularyAssignment] (
     [ChangeBy]           NVARCHAR (50)    NOT NULL,
     PRIMARY KEY CLUSTERED ([VocabularyAssignmentId] ASC),
 	CONSTRAINT [FK_dbo.VocabularyAssignment_dbo.AssignmentAssignmentId] FOREIGN KEY ([AssignmentId]) REFERENCES [dbo].[Assignment] ([AssignmentId]),
-	CONSTRAINT [FK_dbo.VocabularyAssignment_dbo.VocabularyVocabularyId] FOREIGN KEY ([AssignmentId]) REFERENCES [dbo].[Assignment] ([AssignmentId])
+	CONSTRAINT [FK_dbo.VocabularyAssignment_dbo.VocabularyVocabularyId] FOREIGN KEY ([VocabularyId]) REFERENCES [dbo].[Vocabulary] ([VocabularyId])
 );

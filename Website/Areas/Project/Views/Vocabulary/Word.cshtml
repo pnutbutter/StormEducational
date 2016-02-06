@@ -285,7 +285,13 @@
                                         <div class="col-sm-12">
                                             @Html.ValidationMessageFor(model => model.WordArray, "", new { @class = "text-danger" })
                                             <div id="word-array" class="word-array-wrapper">
-
+                                                @if(this.Model.WordArray!=null && this.Model.WordArray.Length>0)
+                                                { 
+                                                    for (int i = 0; i < this.Model.WordArray.Length; i++)
+                                                    {
+                                                    <a href="#" class="word-array-remove" data-value="@this.Model.WordArray[i]">@this.Model.WordArray[i]<i class=\"fa fa-minus-circle\"></i><input name="WordArray" id="WordArray" type="hidden" value="@this.Model.WordArray[i]"><input name="WordArrayIds" id="WordArray" type="hidden" value="@this.Model.WordArrayIds[i]"></a>
+                                                    }
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -360,7 +366,7 @@
         AddToWordArray = function () {
             //alert($("#word-array-input").val());
             if ($("#word-array-input").val().length > 0) {
-                $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i><input name=\"WordArray\" id=\"WordArray\" type=\"hidden\" value=\"" + $("#word-array-input").val() + "\"></a>");
+                $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i><input name=\"WordArray\" id=\"WordArray\" type=\"hidden\" value=\"" + $("#word-array-input").val() + "\"><input name=\"WordArrayIds\" id=\"WordArrayIds\" type=\"hidden\" value=\"0\"></a>");
                 $("#word-array-input").val('')
             }
         }

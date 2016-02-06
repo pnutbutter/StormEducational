@@ -57,7 +57,13 @@ namespace Website.Areas.Project.Controllers
                 data.UserId = item.UserId;
                 data.VocabWord = item.Word;
                 data.Sketch = item.Sketch;
-                //TODO: figure out word array
+                List<VocabularyWordArray> wordArray = item.VocabularyWordArrays.ToList();
+                //TODO: make view to lower queries
+                if(wordArray.Count>0)
+                { 
+                    data.WordArray = wordArray.Select(x => x.WordArray.WordArrayName).ToArray();
+                    data.WordArrayIds = wordArray.Select(x => x.WordArrayId).ToArray();
+                }
             }
 
             ViewBag.VerbTenseTypeId = new SelectList(db.VerbTenseTypes, "VerbTenseTypeId", "VerbTenseTypeName");
@@ -123,13 +129,92 @@ namespace Website.Areas.Project.Controllers
                     item.CreateDate = DateTime.Now;
                     db.Vocabularies.Add(item);
                 }
+
+                db.SaveChanges();
+
+                List<VocabularyWordArray> wordArray = null;
+
+                if (data.VocabularyId != 0)
+                    wordArray = item.VocabularyWordArrays.ToList();
+
+                //get list of current words
+                string wordItem = data.WordArray[i].ToLower();
+                List<WordArray> words = db.WordArrays.Where(w => w.WordArrayName.ToLower() == wordItem).ToList();
+
+                //WordArray and WordArrayIds should be paired. 
+                //An id of 0 means the user just added it and we don't know if it has a word record or not
+                //Add addtional words
                 for (int i = 0; i < data.WordArray.Length; i++ )
                 {
-                    //TODO: check if word exists, if not add it
-                    //TODO: assign word to this record
+                    //skip if word is already assigned to vocabulary record
+                    if(wordArray!=null && wordArray.Count>0 && wordArray.FindAll(v => v.WordArrayId==data.WordArrayIds[i]).Count>0)
+                        continue;
+
+                    VocabularyWordArray wordRelationship = null;
+
+                    
+
+                    //if we don't know the word record id then find it
+                    if(data.WordArrayIds[i]==0)
+                    {
+                        int wordId = 0;
+
+                        //if word doesn't exist make it
+                        if (words.Count == 0)
+                        {
+                            WordArray word = new WordArray
+                            {
+                                WordArrayName = data.WordArray[i].ToLower(),
+                                ChangeBy = this.User.Identity.Name,
+                                ChangeDate = DateTime.Now,
+                                CreateBy = this.User.Identity.Name,
+                                CreateDate = DateTime.Now
+                            };
+                            db.WordArrays.Add(word);
+                            db.SaveChanges();
+                            wordId = word.WordArrayId;
+                        }
+                        else
+                            //else if it exists get the word id
+                            wordId = words.FirstOrDefault().WordArrayId;
+
+                        //create relationship between Vocabulary and WordArray
+                        wordRelationship = new VocabularyWordArray
+                        {
+                            VocabularyId = item.VocabularyId,
+                            WordArrayId = wordId,
+                            IsActive = true,
+                            ChangeBy = this.User.Identity.Name,
+                            ChangeDate = DateTime.Now,
+                            CreateBy = this.User.Identity.Name,
+                            CreateDate = DateTime.Now
+                        };
+
+                        db.VocabularyWordArrays.Add(wordRelationship);
+                        db.SaveChanges();
+                    }else
+                    {
+                        //TODO: figure out how to add id in suggestion box and hit this code
+                        //if we do know the id then add a relationship between WordArray and Vocabulary
+                        wordRelationship = new VocabularyWordArray
+                        {
+                            VocabularyId = item.VocabularyId,
+                            WordArrayId = data.WordArrayIds[i],
+                            IsActive = true,
+                            ChangeBy = this.User.Identity.Name,
+                            ChangeDate = DateTime.Now,
+                            CreateBy = this.User.Identity.Name,
+                            CreateDate = DateTime.Now
+                        };
+
+                        db.VocabularyWordArrays.Add(wordRelationship);
+                        db.SaveChanges();
+                    }
                 }
 
-                    db.SaveChanges();
+                //TODO: delete removed words
+
+                    
             }
             catch (DbEntityValidationException e)
             {
