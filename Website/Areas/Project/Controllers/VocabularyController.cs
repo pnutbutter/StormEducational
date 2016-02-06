@@ -138,9 +138,7 @@ namespace Website.Areas.Project.Controllers
                     wordArray = item.VocabularyWordArrays.ToList();
 
                 //get list of current words
-                string wordItem = data.WordArray[i].ToLower();
-                List<WordArray> words = db.WordArrays.Where(w => w.WordArrayName.ToLower() == wordItem).ToList();
-
+                
                 //WordArray and WordArrayIds should be paired. 
                 //An id of 0 means the user just added it and we don't know if it has a word record or not
                 //Add addtional words
@@ -152,7 +150,9 @@ namespace Website.Areas.Project.Controllers
 
                     VocabularyWordArray wordRelationship = null;
 
-                    
+                    string wordItem = data.WordArray[i].ToLower();
+                    List<WordArray> words = db.WordArrays.Where(w => w.WordArrayName.ToLower() == wordItem).ToList();
+
 
                     //if we don't know the word record id then find it
                     if(data.WordArrayIds[i]==0)
@@ -212,8 +212,16 @@ namespace Website.Areas.Project.Controllers
                     }
                 }
 
-                //TODO: delete removed words
+                for (int i = 0; i < wordArray.Count; i++)
+                {
+                    //if word is already present skip
+                    if (data.WordArrayIds != null && data.WordArrayIds.Length > 0 && data.WordArrayIds.Contains(wordArray[i].WordArrayId))
+                        continue;
 
+                    //remove items not submitted in form that existed before
+                    db.VocabularyWordArrays.Remove(wordArray[i]);
+                    db.SaveChanges();
+                }
                     
             }
             catch (DbEntityValidationException e)
