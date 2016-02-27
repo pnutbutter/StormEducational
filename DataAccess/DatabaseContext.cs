@@ -40,6 +40,7 @@ namespace DataAccess
         public virtual DbSet<UserGroupView> UserGroupViews { get; set; }
         public virtual DbSet<UserRoleLookupView> UserRoleLookupViews { get; set; }
         public virtual DbSet<UserView> UserViews { get; set; }
+        public virtual DbSet<VocabularyWordArray> VocabularyWordArrays { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -69,10 +70,22 @@ namespace DataAccess
                 .HasForeignKey(e => e.AssignmentId)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Assignment>()
-                .HasMany(e => e.VocabularyAssignments1)
-                .WithRequired(e => e.Assignment1)
-                .HasForeignKey(e => e.AssignmentId)
+            modelBuilder.Entity<Vocabulary>()
+                .HasMany(e => e.VocabularyAssignments)
+                .WithRequired(e => e.Vocabulary)
+                .HasForeignKey(e => e.VocabularyId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Vocabulary>()
+                .HasMany(e => e.VocabularyWordArrays)
+                .WithRequired(e => e.Vocabulary)
+                .HasForeignKey(e => e.VocabularyId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<WordArray>()
+                .HasMany(e => e.VocabularyWordArrays)
+                .WithRequired(e => e.WordArray)
+                .HasForeignKey(e => e.WordArrayId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<AssignmentType>()

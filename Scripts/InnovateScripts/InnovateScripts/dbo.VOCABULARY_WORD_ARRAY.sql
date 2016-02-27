@@ -11,4 +11,3 @@ CREATE TABLE [dbo].[VocabularyWordArray] (
 	CONSTRAINT [FK_dbo.VocabularyWordArray_dbo.VocabularyVocabularyId] FOREIGN KEY ([VocabularyId]) REFERENCES [dbo].[Vocabulary] ([VocabularyId]),
 	CONSTRAINT [FK_dbo.VocabularyWordArray_dbo.WordArrayWordArrayId] FOREIGN KEY ([WordArrayId]) REFERENCES [dbo].[WordArray] ([WordArrayId])
 );
--

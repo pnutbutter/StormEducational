@@ -9,6 +9,11 @@ namespace DataAccess
     [Table("Vocabulary")]
     public partial class Vocabulary
     {
+        public Vocabulary()
+        {
+            VocabularyAssignments = new HashSet<VocabularyAssignment>();
+            VocabularyWordArrays = new HashSet<VocabularyWordArray>();
+        }
         public int VocabularyId { get; set; }
 
         public int UserId { get; set; }
@@ -83,8 +88,16 @@ namespace DataAccess
         [StringLength(50)]
         public string ChangeBy { get; set; }
 
+        public string Sketch { get; set; }
+
         public virtual User User { get; set; }
 
         public virtual VerbTenseType VerbTenseType { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VocabularyAssignment> VocabularyAssignments { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VocabularyWordArray> VocabularyWordArrays { get; set; }
     }
 }

@@ -16,6 +16,7 @@
         {
             @Html.AntiForgeryToken()
             @Html.HiddenFor(model => model.UserId)
+            @Html.HiddenFor(model => model.VocabularyId)
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="panel panel-info">
                 <div class="panel-heading">
@@ -96,6 +97,7 @@
                                                     Edit Sketch
                                                 </button>
                                                 <div id="show-sketch">@Html.Raw(this.Model.Sketch)</div>
+                                                @Html.HiddenFor(model => model.Sketch)
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                                     <div class="modal-dialog" style="width: 100%" role="document">
@@ -282,9 +284,14 @@
                                         </div>
                                         <div class="col-sm-12">
                                             @Html.ValidationMessageFor(model => model.WordArray, "", new { @class = "text-danger" })
-                                            @Html.HiddenFor(model => model.WordArray)
                                             <div id="word-array" class="word-array-wrapper">
-
+                                                @if(this.Model.WordArray!=null && this.Model.WordArray.Length>0)
+                                                { 
+                                                    for (int i = 0; i < this.Model.WordArray.Length; i++)
+                                                    {
+                                                    <a href="#" class="word-array-remove" data-value="@this.Model.WordArray[i]">@this.Model.WordArray[i] <i class="fa fa-minus-circle"></i><input name="WordArray" id="WordArray" type="hidden" value="@this.Model.WordArray[i]"><input name="WordArrayIds" id="WordArray" type="hidden" value="@this.Model.WordArrayIds[i]"></a>
+                                                    }
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -303,7 +310,14 @@
                     <div class="form-group">
                         <div class="col-md-12 text-right">
                             <input type="submit" value="Cancel" class="btn btn-default" />
-                            <input type="submit" value="Create" class="btn btn-primary" />
+                            @if (this.Model.VocabularyId > 0)
+                            {
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            }
+                            else
+                            {
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            }
                         </div>
                     </div>
                 </div>
@@ -352,7 +366,7 @@
         AddToWordArray = function () {
             //alert($("#word-array-input").val());
             if ($("#word-array-input").val().length > 0) {
-                $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i></a>");
+                $("#word-array").append("<a href=\"#\" class=\"word-array-remove\" data-value=\"" + $("#word-array-input").val() + "\">" + $("#word-array-input").val() + " <i class=\"fa fa-minus-circle\"></i><input name=\"WordArray\" id=\"WordArray\" type=\"hidden\" value=\"" + $("#word-array-input").val() + "\"><input name=\"WordArrayIds\" id=\"WordArrayIds\" type=\"hidden\" value=\"0\"></a>");
                 $("#word-array-input").val('')
             }
         }

@@ -79,6 +79,7 @@
     <Compile Include="UserView.cs" />
     <Compile Include="VerbTenseType.cs" />
     <Compile Include="Vocabulary.cs" />
+    <Compile Include="VocabularyWordArray.cs" />
     <Compile Include="VocabularyAssignment.cs" />
     <Compile Include="WordArray.cs" />
   </ItemGroup>

@@ -6,19 +6,14 @@ namespace DataAccess
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("WordArray")]
-    public partial class WordArray
+    [Table("VocabularyWordArray")]
+    public partial class VocabularyWordArray
     {
-        public WordArray()
-        {
-            VocabularyWordArrays = new HashSet<VocabularyWordArray>();
-        }
+        public int VocabularyWordArrayId { get; set; }
 
         public int WordArrayId { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string WordArrayName { get; set; }
+        public int VocabularyId { get; set; }
 
         public bool IsActive { get; set; }
 
@@ -36,7 +31,8 @@ namespace DataAccess
         [StringLength(50)]
         public string ChangeBy { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VocabularyWordArray> VocabularyWordArrays { get; set; }
+        public virtual WordArray WordArray { get; set; }
+
+        public virtual Vocabulary Vocabulary { get; set; }
     }
 }

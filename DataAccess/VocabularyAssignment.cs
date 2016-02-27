@@ -33,6 +33,6 @@ namespace DataAccess
 
         public virtual Assignment Assignment { get; set; }
 
-        public virtual Assignment Assignment1 { get; set; }
+        public virtual Vocabulary Vocabulary { get; set; }
     }
 }
