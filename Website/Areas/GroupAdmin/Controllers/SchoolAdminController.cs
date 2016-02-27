@@ -43,7 +43,7 @@ namespace Website.Areas.GroupAdmin.Controllers
 
             data.Message = Message;
             data.GroupId = id;
-
+                
             return View(data);
         }
 
