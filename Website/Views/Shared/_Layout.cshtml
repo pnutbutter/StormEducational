@@ -288,6 +288,10 @@
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Grades</a>
                             </li>
                         }
+                        @if (Context.User.IsInRole("Teacher"))
+                        {
+                            
+                        }
                         @if (Context.User.IsInRole("Admin"))
                         {
                             <li>
