@@ -5,7 +5,8 @@ using System.Web;
 
 namespace Website.Areas.Teacher.Models.TeacherAssignmentsData
 {
-    public class TeacherAssignmentsEdit
+    public class TeacherAssignmentsEdit : TeacherAssignmentsCreate
     {
+        public int AssignmentId { get; set; }
     }
 }
