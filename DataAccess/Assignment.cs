@@ -67,6 +67,8 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VocabularyAssignment> VocabularyAssignments { get; set; }
 
+        public int UserId { get; set; }
+
         
     }
 }

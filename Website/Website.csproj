@@ -330,6 +330,10 @@
     <Content Include="Areas\Administration\Views\User\Search.cshtml" />
     <Content Include="Areas\GroupAdmin\Views\SchoolAdmin\Create.cshtml" />
     <Content Include="Areas\Teacher\Views\web.config" />
+    <Content Include="Areas\Teacher\Views\TeacherAssignments\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\TeacherAssignments\Create.cshtml" />
+    <Content Include="Areas\Teacher\Views\TeacherAssignments\Edit.cshtml" />
+    <Content Include="Areas\Teacher\Views\TeacherAssignments\ConfirmDelete.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -907,7 +911,6 @@
     <Folder Include="Areas\AppAdmin\Views\Shared\" />
     <Folder Include="Areas\Project\Views\Shared\" />
     <Folder Include="Areas\Teacher\Views\Shared\" />
-    <Folder Include="Areas\Teacher\Views\TeacherAssignments\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Group\" />
   </ItemGroup>

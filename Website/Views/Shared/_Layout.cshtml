@@ -288,6 +288,12 @@
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Grades</a>
                             </li>
                         }
+                        @if (Context.User.IsInRole("Teacher"))
+                        {
+                            <li>
+                                <a href="@Url.Action("Index", "TeacherAssignments", new { Area = "Teacher" })"><i class="fa fa-list fa-fw"></i> Assignments</a>
+                            </li>
+                        }
                         @if (Context.User.IsInRole("Admin"))
                         {
                             <li>
