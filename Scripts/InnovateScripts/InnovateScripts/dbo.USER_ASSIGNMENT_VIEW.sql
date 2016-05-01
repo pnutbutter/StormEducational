@@ -1,12 +1,10 @@
-CREATE VIEW UserAssignmentView
+﻿CREATE VIEW UserAssignmentView
 AS
 SELECT 
 	  ua.[UserAssignmentId]
 	  ,u.[UserId]
 	  ,u.[FirstName]
       ,u.[LastName]
-      ,u.[ScreenName]
-      ,u.[Identifier]
 	  ,a.[AssignmentId]
       ,a.[AssignmentTypeId]
       ,a.[AssignmentParentId]
