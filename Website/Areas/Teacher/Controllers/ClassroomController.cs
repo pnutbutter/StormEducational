@@ -10,7 +10,7 @@ using Website.Controllers;
 
 namespace Website.Areas.Teacher.Controllers
 {
-    public class ClassroomController : Controller
+    public class ClassroomController : BaseController
     {
         private DatabaseContext db = new DatabaseContext();
 
@@ -19,8 +19,8 @@ namespace Website.Areas.Teacher.Controllers
         public ActionResult Index(string Message)
         {
             ClassroomIndex data = new ClassroomIndex();
-
-            data.ItemList = db.GroupViews.Where(g => g.GroupTypeId == 2).ToList();
+            int userid = this.GetCurrentUser().UserId;
+            data.ItemList = db.GroupViews.Where(g => g.GroupTypeId == 6 && g.OwnerUserId!=null && g.OwnerUserId.Value == userid).ToList();
             data.Message = Message;
 
             return View(data);
@@ -31,7 +31,6 @@ namespace Website.Areas.Teacher.Controllers
         public ActionResult Create()
         {
             ClassroomCreate data = new ClassroomCreate();
-            ViewBag.GroupTypeId = new SelectList(db.GroupTypes, "GroupTypeId", "GroupName");
             return View(data);
         }
 
@@ -47,12 +46,15 @@ namespace Website.Areas.Teacher.Controllers
                     return View(data);
                 }
 
+                
+
                 Group item = new Group();
                 item.GroupName = data.GroupName;
+                item.OwnerUserId = this.GetCurrentUser().UserId;
                 // set all groups on this screen to active.  Admins at this level can't inactivate or activate Classrooms
                 item.IsActive = true;
                 // Hard code to only allow user to add group types of Classroom
-                item.GroupTypeId = 2;
+                item.GroupTypeId = 6;
                 item.ChangeBy = this.User.Identity.Name;
                 item.ChangeDate = DateTime.Now;
                 item.CreateBy = this.User.Identity.Name;
@@ -79,7 +81,6 @@ namespace Website.Areas.Teacher.Controllers
 
             Group item = db.Groups.Find(id);
             data.GroupName = item.GroupName;
-            ViewBag.GroupTypeId = new SelectList(db.GroupTypes, "GroupTypeId", "GroupName", item.GroupTypeId);
             data.GroupId = item.GroupId;
             return View(data);
         }

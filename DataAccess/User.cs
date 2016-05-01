@@ -20,6 +20,7 @@ namespace DataAccess
             UserRoles = new HashSet<UserRole>();
             UserSubscriptions = new HashSet<UserSubscription>();
             Vocabularies = new HashSet<Vocabulary>();
+            Groups = new HashSet<Group>();
         }
 
         public int UserId { get; set; }
@@ -75,5 +76,8 @@ namespace DataAccess
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vocabulary> Vocabularies { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace DataAccess
 
         public int GroupTypeId { get; set; }
 
+        public int? OwnerUserId { get; set; }
+
         [Required]
         [StringLength(50)]
         public string GroupName { get; set; }
@@ -55,5 +57,7 @@ namespace DataAccess
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupSubscription> GroupSubscriptions { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

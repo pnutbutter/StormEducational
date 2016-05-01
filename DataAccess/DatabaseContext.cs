@@ -151,6 +151,12 @@ namespace DataAccess
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
+                .HasMany(e => e.Groups)
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.OwnerUserId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<User>()
                 .HasMany(e => e.UserAssignments1)
                 .WithRequired(e => e.User1)
                 .HasForeignKey(e => e.AssigningUserId)

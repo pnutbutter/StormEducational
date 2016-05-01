@@ -27,8 +27,11 @@
         [Column(Order = 3)]
         public bool IsActive { get; set; }
 
-        [Key]
         [Column(Order = 4)]
+        public int? OwnerUserId { get; set; }
+
+        [Key]
+        [Column(Order = 5)]
         [StringLength(50)]
         public string GroupTypeName { get; set; }
 
