@@ -259,6 +259,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Andrew_Tasks.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -278,6 +279,7 @@
     <Content Include="Content\images\sort_desc_disabled.png" />
     <Content Include="Content\images\stock-photo-education-elementary-school-learning-technology-and-people-concept-group-of-school-kids-with-238623745.jpg" />
     <Content Include="favicon.ico" />
+    <Content Include="Gary_Tasks.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="CodeTemplates\EFModelFromDatabase\EntityType.cs.t4" />
@@ -334,6 +336,7 @@
     <Content Include="Areas\Teacher\Views\TeacherAssignments\Create.cshtml" />
     <Content Include="Areas\Teacher\Views\TeacherAssignments\Edit.cshtml" />
     <Content Include="Areas\Teacher\Views\TeacherAssignments\ConfirmDelete.cshtml" />
+    <Content Include="Areas\Teacher\Views\TeacherAssignments\Assign.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
