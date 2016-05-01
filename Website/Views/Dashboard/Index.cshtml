@@ -102,10 +102,16 @@
             Test: @Context.User.Identity.Name
         </div>
         <div>
-            @Context.User.IsInRole("Student")
+           Student: @Context.User.IsInRole("Student")
         </div>
         <div>
-            @Context.User.IsInRole("Teacher")
+           Admin: @Context.User.IsInRole("Admin")
+        </div>
+        <div>
+            SchoolAdmin: @Context.User.IsInRole("SchoolAdmin")
+        </div>
+        <div>
+            DistrictAdmin: @Context.User.IsInRole("DistrictAdmin")
         </div>
     </div>
 </div>
