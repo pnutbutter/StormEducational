@@ -20,7 +20,7 @@ namespace Website.Areas.Teacher.Controllers
         {
             ClassroomIndex data = new ClassroomIndex();
             int userid = this.GetCurrentUser().UserId;
-            data.ItemList = db.GroupViews.Where(g => g.GroupTypeId == 6 && g.OwnerUserId!=null && g.OwnerUserId.Value == userid).ToList();
+            data.ItemList = db.GroupViews.Where(g => g.IsActive==true && g.GroupTypeId == 6 && g.OwnerUserId!=null && g.OwnerUserId.Value == userid).ToList();
             data.Message = Message;
 
             return View(data);
@@ -110,6 +110,65 @@ namespace Website.Areas.Teacher.Controllers
                 throw;
             }
             return RedirectToAction("Index", new { Message = data.GroupName + " Edits Saved" });
+        }
+
+        [HttpGet]
+        public ActionResult ConfirmDelete(int id)
+        {
+            ClassroomDelete data = new ClassroomDelete();
+            try{
+                Group item = db.Groups.Find(id);
+                if(item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                {
+                    data.GroupName = item.GroupName;
+                    data.GroupId = item.GroupId;
+                }else
+                {
+                    throw new ArgumentException("You do not have permissions to delete this group");
+                }            
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            
+            return View(data);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ConfirmDelete(ClassroomDelete data)
+        {
+            try
+            {
+                if (!this.ModelState.IsValid)
+                {
+                    return View(data);
+                }
+
+                Group item = db.Groups.Find(data.GroupId);
+                if(item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                {
+                    //set group name for return message
+                    data.GroupName = item.GroupName;
+
+                    //soft delete group
+                    item.IsActive = false;
+                    item.ChangeBy = this.User.Identity.Name;
+                    item.ChangeDate = DateTime.Now;
+
+                    db.Entry<Group>(item).State = EntityState.Modified;
+                    db.SaveChanges();
+                }else
+                {
+                    throw new ArgumentException("You do not have permissions to delete this group");
+                }  
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            return RedirectToAction("Index", new { Message = data.GroupName + " Classroom Deleted" });
         }
     }
 }

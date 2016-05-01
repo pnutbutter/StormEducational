@@ -237,6 +237,7 @@
     <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomCreate.cs" />
     <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomEdit.cs" />
     <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomIndex.cs" />
+    <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomDelete.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsCreate.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsDelete.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsEdit.cs" />
@@ -344,6 +345,7 @@
     <Content Include="Areas\Teacher\Views\Classroom\Create.cshtml" />
     <Content Include="Areas\Teacher\Views\Classroom\Edit.cshtml" />
     <Content Include="Areas\Teacher\Views\Classroom\Index.cshtml" />
+    <Content Include="Areas\Teacher\Views\Classroom\ConfirmDelete.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
