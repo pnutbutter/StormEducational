@@ -25,11 +25,14 @@ using Microsoft.Owin.Security;
 using Website.Models;
 using System.Diagnostics;
 
+using System.Threading.Tasks;
+
 
 namespace Website.Areas.GroupAdmin.Controllers
 {
     public class SchoolAdminController : Controller
     {
+
         private DatabaseContext db = new DatabaseContext();
 
         // GET: Administration/Group
@@ -115,10 +118,9 @@ namespace Website.Areas.GroupAdmin.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Email(SchoolAdminEmail data)
+        public async Task<ActionResult> Email(SchoolAdminEmail data)
         {
-            
-            
+                 
             try
             {
                 if (!this.ModelState.IsValid)
@@ -126,25 +128,22 @@ namespace Website.Areas.GroupAdmin.Controllers
                     return View(data);
                 }
 
-
                 //parse email list
                 string[] emailArray = data.EmailList.Split(',');
 
                 for (int i = 0; i < emailArray.Length; i++)
                 {
                     //Validate email?
-
-
-
                     string Gary = emailArray[i];
-                    
+
                     //Send Email
                     var myMessage = new SendGridMessage();
                     myMessage.AddTo(emailArray[i]);
                     myMessage.From = new System.Net.Mail.MailAddress("Gary03082000@gmail.com", "Gary L.");
                     myMessage.Subject = "New Admin Request";
-                    myMessage.Text = "Has requested you as an administrator ...  Please click on the link below to access the application.";
-                    myMessage.Html = "www.google.com";
+                    //myMessage.Html = "http://www.bing.com/";
+                    myMessage.Text = "Has requested you as an administrator ...  Please click on the link below to access the application. http://www.bing.com/";
+                    //myMessage.Html = "www.google.com";
 
                     var credentials = new NetworkCredential(
                                ConfigurationManager.AppSettings["mailAccount"],
@@ -157,20 +156,17 @@ namespace Website.Areas.GroupAdmin.Controllers
                     // Send the email.
                     if (transportWeb != null)
                     {
-                        //await transportWeb.DeliverAsync(myMessage);
+                        await transportWeb.DeliverAsync(myMessage);
                     }
                     else
                     {
-                        //Trace.TraceError("Failed to create Web transport.");
-                        //await Task.FromResult(0);
+                        Trace.TraceError("Failed to create Web transport.");
+                        await Task.FromResult(0);
                     }
                 }
 
 
-                
-
-                
-                //db.SaveChanges();
+                db.SaveChanges();
 
             }
             catch (Exception e)
