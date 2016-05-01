@@ -6,17 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Website.Areas.GroupAdmin.Models.SchoolAdminData;
-
 using System.Net.Http;
 using System.Net.Mail;
 using SendGrid;
 using System.Net;
 using System.Configuration;
-
-
 using System.Security.Claims;
 using System.Threading.Tasks;
-
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -24,9 +20,6 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Website.Models;
 using System.Diagnostics;
-
-using System.Threading.Tasks;
-
 
 namespace Website.Areas.GroupAdmin.Controllers
 {
@@ -134,16 +127,14 @@ namespace Website.Areas.GroupAdmin.Controllers
                 for (int i = 0; i < emailArray.Length; i++)
                 {
                     //Validate email?
-                    string Gary = emailArray[i];
+                    //string validEmail = emailArray[i];
 
                     //Send Email
                     var myMessage = new SendGridMessage();
                     myMessage.AddTo(emailArray[i]);
                     myMessage.From = new System.Net.Mail.MailAddress("Gary03082000@gmail.com", "Gary L.");
                     myMessage.Subject = "New Admin Request";
-                    //myMessage.Html = "http://www.bing.com/";
                     myMessage.Text = "Has requested you as an administrator ...  Please click on the link below to access the application. http://www.bing.com/";
-                    //myMessage.Html = "www.google.com";
 
                     var credentials = new NetworkCredential(
                                ConfigurationManager.AppSettings["mailAccount"],
@@ -165,9 +156,7 @@ namespace Website.Areas.GroupAdmin.Controllers
                     }
                 }
 
-
                 db.SaveChanges();
-
             }
             catch (Exception e)
             {
