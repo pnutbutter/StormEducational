@@ -170,5 +170,30 @@ namespace Website.Areas.Teacher.Controllers
             }
             return RedirectToAction("Index", new { Message = data.GroupName + " Classroom Deleted" });
         }
+
+        [HttpGet]
+        public ActionResult Assign(int id, string Message, string Search)
+        {
+            ClassroomAssign data = new ClassroomAssign();
+            try
+            {
+                Group item = db.Groups.Find(id);
+                if (item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                {
+                    data.ItemList = db.TeacherStudentViews.Where(t => t.TeacherUserId == this.GetCurrentUser().UserId).ToList();
+                    data.Message = Message;
+                }
+                else
+                {
+                    throw new ArgumentException("You do not have permissions to assign students to this group");
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return View(data);
+        }
     }
 }

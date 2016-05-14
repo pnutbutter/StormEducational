@@ -35,7 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -234,10 +234,12 @@
     <Compile Include="Areas\Project\ProjectAreaRegistration.cs" />
     <Compile Include="Areas\Teacher\Controllers\ClassroomController.cs" />
     <Compile Include="Areas\Teacher\Controllers\TeacherAssignmentsController.cs" />
+    <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomAssign.cs" />
     <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomCreate.cs" />
     <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomEdit.cs" />
     <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomIndex.cs" />
     <Compile Include="Areas\Teacher\Models\ClassroomData\ClassroomDelete.cs" />
+    <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsAssign.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsCreate.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsDelete.cs" />
     <Compile Include="Areas\Teacher\Models\TeacherAssignmentsData\TeacherAssignmentsEdit.cs" />
@@ -346,6 +348,7 @@
     <Content Include="Areas\Teacher\Views\Classroom\Edit.cshtml" />
     <Content Include="Areas\Teacher\Views\Classroom\Index.cshtml" />
     <Content Include="Areas\Teacher\Views\Classroom\ConfirmDelete.cshtml" />
+    <Content Include="Areas\Teacher\Views\Classroom\Assign.cshtml" />
     <None Include="Properties\PublishProfiles\StormEducational.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

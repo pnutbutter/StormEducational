@@ -10,7 +10,9 @@ namespace Website.Areas.Teacher.Models.TeacherAssignmentsData
     {
         public int AssignmentId { get; set; }
 
-        public List<UserView> Students { get; set; }
+        public string Message { get; set; }
+
+        public List<TeacherStudentView> ItemList { get; set; }
 
         public int[] SelectedStudents { get; set; }
 

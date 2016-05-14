@@ -1,1 +1,14 @@
-﻿Add items to menu for all user types
+﻿School Admin:
+Ability to Add/Remove teachers to a school
+Ability to pull up any class in school
+- View All Classes / Search classes?
+- Find by teacher?
+
+District Admin:
+Ability to Add School to district
+Ability to Add/Remove School Admins to School
+Ability to Add/Remove Teachers to School
+Ability to pull up any class in District
+- Select School First (list of schools)
+- View All Classes / Search classes?
+- Find by teacher?
