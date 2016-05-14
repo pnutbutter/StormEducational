@@ -1,1 +1,1 @@
-﻿
+﻿Add items to menu for all user types
