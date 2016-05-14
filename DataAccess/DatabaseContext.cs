@@ -41,6 +41,7 @@ namespace DataAccess
         public virtual DbSet<UserRoleLookupView> UserRoleLookupViews { get; set; }
         public virtual DbSet<UserView> UserViews { get; set; }
         public virtual DbSet<VocabularyWordArray> VocabularyWordArrays { get; set; }
+        public virtual DbSet<TeacherStudentView> TeacherStudentViews { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
