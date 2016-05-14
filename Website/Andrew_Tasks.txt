@@ -1,2 +1,3 @@
-﻿Create ability to assign assignment to students
-Create ability to make a class with students
+﻿Create ability to assign students to a class
+Create ability to assign assignment to students
+(done) Create ability to make a class with students
