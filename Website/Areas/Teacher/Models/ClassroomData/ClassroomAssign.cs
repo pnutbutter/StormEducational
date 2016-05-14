@@ -10,6 +10,12 @@ namespace Website.Areas.Teacher.Models.ClassroomData
     {
         public string Message { get; set; }
 
+        public string Search { get; set; }
+
         public List<TeacherStudentView> ItemList { get; set; }
+
+        public List<UserView> SearchList { get; set; }
+
+        public int Id { get; set; }
     }
 }

@@ -172,16 +172,43 @@ namespace Website.Areas.Teacher.Controllers
         }
 
         [HttpGet]
-        public ActionResult Assign(int id, string Message, string Search)
+        public ActionResult Assign(int id, string Message, string Search, int? SchoolId)
         {
             ClassroomAssign data = new ClassroomAssign();
             try
             {
                 Group item = db.Groups.Find(id);
-                if (item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                UserView currentUser = this.GetCurrentUser();
+                if (item.GroupTypeId == 6 && (item.OwnerUserId == currentUser.UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
                 {
-                    data.ItemList = db.TeacherStudentViews.Where(t => t.TeacherUserId == this.GetCurrentUser().UserId).ToList();
+                    if(SchoolId.HasValue)
+                    {
+                        var query  = from t1 in db.UserViews
+                                        join t2 in db.UserGroupViews on t1.UserId equals t2.UserId
+                                        where t2.GroupTypeId==2 && t2.GroupId==SchoolId.Value
+                                        select t1;
+                        if(query.Any())
+                        {
+                            data.SearchList = query.ToList();
+                        }else
+                        {
+                            data.SearchList = new List<UserView>();
+                        }
+                        data.ItemList = new List<TeacherStudentView>();
+                        
+                    }else if(!string.IsNullOrWhiteSpace(Search))
+                    {
+                        data.SearchList = db.UserViews.Where(u => u.FirstName.ToLower().Contains(Search.ToLower()) || u.FirstName.ToLower().Contains(Search.ToLower())).ToList();
+                        data.ItemList = new List<TeacherStudentView>();
+                    }
+                    else
+                    {
+                        data.ItemList = db.TeacherStudentViews.Where(t => t.TeacherUserId == currentUser.UserId).ToList();
+                        data.SearchList = new List<UserView>();
+                    }
+                    
                     data.Message = Message;
+                    data.Id = id;
                 }
                 else
                 {

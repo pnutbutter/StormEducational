@@ -27,20 +27,31 @@
         <h2 class="page-header">Current Students</h2>
     </div>
     <div class="col-lg-12">
-        @if (this.Model.ItemList.Count == 0)
+        @if (this.Model.ItemList.Count == 0 && this.Model.SearchList.Count != 0 && string.IsNullOrWhiteSpace(this.Model.Search))
         {
             <div class="text-center">
-                <p>You haven't created any assignments yet!</p>
+                <p>No students are currently assigned to you! Please search for students above</p>
                 <p><a href="@Url.Action("Create", "TeacherAssignments", new { Area = "Teacher" })" class="text-center btn btn-primary">Create an Assignment</a></p>
             </div>
+        }
+        else if (this.Model.ItemList.Count == 0 && this.Model.SearchList.Count != 0 && !string.IsNullOrWhiteSpace(this.Model.Search))
+        {
+            <div class="text-center">
+                <p>Your search result returned nothing</p>
+                <p><a href="@Url.Action("Create", "TeacherAssignments", new { Area = "Teacher" })" class="text-center btn btn-primary">Create an Assignment</a></p>
+            </div>
+        }
+        else if(this.Model.SearchList.Count > 0)
+        {
+            
         }
         else
         {
             <table id="example" class="table table-striped table-bordered" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Assignment</th>
-                        <th>Type</th>
+                        <th>Student Name</th>
+                        <th>Email</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -49,15 +60,15 @@
                     {
                         <tr>
                             <td>
-                                @this.Model.ItemList[i].AssignmentTitle
+                                @this.Model.ItemList[i].StudentFirstName @this.Model.ItemList[i].StudentLastName
                             </td>
                             <td>
-                                @this.Model.ItemList[i].AssignmentType.AssignmentTypeTitle
+                                @this.Model.ItemList[i].StudentEmail
                             </td>
                             <td class="text-right">
-                                <a class="btn btn-sm btn-primary" href="@Url.Action("Assign", "TeacherAssignments", new { Area = "Teacher", id = this.Model.ItemList[i].AssignmentId })">Assign</a>
+                                @*<a class="btn btn-sm btn-primary" href="@Url.Action("Assign", "TeacherAssignments", new { Area = "Teacher", id = this.Model.ItemList[i].AssignmentId })">Assign</a>
                                 <a class="btn btn-sm btn-primary" href="@Url.Action("Edit", "TeacherAssignments", new { Area = "Teacher", id = this.Model.ItemList[i].AssignmentId })">Edit</a>
-                                <a class="btn btn-sm btn-warning" href="@Url.Action("ConfirmDelete", "TeacherAssignments", new { Area = "Teacher", id = this.Model.ItemList[i].AssignmentId })">Delete</a>
+                                <a class="btn btn-sm btn-warning" href="@Url.Action("ConfirmDelete", "TeacherAssignments", new { Area = "Teacher", id = this.Model.ItemList[i].AssignmentId })">Delete</a>*@
                             </td>
                         </tr>
                     }
