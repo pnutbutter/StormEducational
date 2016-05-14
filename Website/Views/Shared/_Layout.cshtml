@@ -314,6 +314,34 @@
                                 </ul>
                             </li>
                         }
+                        @if (Context.User.IsInRole("SchoolAdmin"))
+                        {
+                            <li>
+                                <a href="#"><i class="fa fa-lock fa-fw"></i> Admin<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Admin", new { Area="Administration" })">Group</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "GroupType", new { Area="Administration" })">Group Type</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        @if (Context.User.IsInRole("DistrictAdmin"))
+                        {
+                            <li>
+                                <a href="#"><i class="fa fa-lock fa-fw"></i> Admin<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Admin", new { Area="Administration" })">Group</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "GroupType", new { Area="Administration" })">Group Type</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
 
                 </div>
