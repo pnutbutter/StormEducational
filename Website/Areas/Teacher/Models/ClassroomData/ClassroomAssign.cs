@@ -17,5 +17,7 @@ namespace Website.Areas.Teacher.Models.ClassroomData
         public List<UserView> SearchList { get; set; }
 
         public int Id { get; set; }
+
+        public int SchoolId { get; set; }
     }
 }

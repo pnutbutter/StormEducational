@@ -1,3 +1,8 @@
 ﻿Create ability to assign students to a class
+- (done) show list of students assigned to teacher
+- (done) Search all users by name to assign to class
+- (done) Get list of students from school
+- Add ability to assign student to class and teacher
+- add student by email if they don't exist? (triggers email to student email with custom register?)
 Create ability to assign assignment to students
 (done) Create ability to make a class with students

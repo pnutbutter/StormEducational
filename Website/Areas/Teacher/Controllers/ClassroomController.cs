@@ -179,8 +179,22 @@ namespace Website.Areas.Teacher.Controllers
             {
                 Group item = db.Groups.Find(id);
                 UserView currentUser = this.GetCurrentUser();
+
+                //get default school id to search by
+                var schoolQuery = from t1 in db.UserViews
+                            join t2 in db.UserGroupViews on t1.UserId equals t2.UserId
+                            where t2.UserId == currentUser.UserId && t2.GroupTypeId == 2
+                            select t2;
+                if (schoolQuery.Any())
+                {
+                    List<UserGroupView> userGroupViewList = schoolQuery.ToList();
+                    data.SchoolId = userGroupViewList.FirstOrDefault().GroupId;
+                }
+
+                //populate lists
                 if (item.GroupTypeId == 6 && (item.OwnerUserId == currentUser.UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
                 {
+                    data.Search = Search;
                     if(SchoolId.HasValue)
                     {
                         var query  = from t1 in db.UserViews
