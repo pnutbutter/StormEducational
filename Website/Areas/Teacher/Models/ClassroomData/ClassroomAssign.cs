@@ -16,8 +16,14 @@ namespace Website.Areas.Teacher.Models.ClassroomData
 
         public List<UserView> SearchList { get; set; }
 
+        public List<UserView> AssignedList { get; set; }
+
         public int Id { get; set; }
 
         public int SchoolId { get; set; }
+
+        public int[] Included { get; set; }
+
+        public int[] Excluded { get; set; }
     }
 }
