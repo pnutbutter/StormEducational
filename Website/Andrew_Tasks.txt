@@ -6,8 +6,14 @@
 - (done) Add ability to see assigned students
 - (done) Add ability to removed assigned students
 
+-- Add school to table in case of two students with same name?
 -- add student by email if they don't exist? (triggers email to student email with custom register?)
---ability to have subs do assignments?
+-- ability to have subs do assignments?
 
 Create ability to assign assignment to students
-(done) Create ability to make a class with students
+- (done) Create ability to make a class with students
+- Assign students by class
+- Search for students to assign by name
+- Assign students by teacher student relationship
+- Add ability to see assigned students
+- Add ability to removed assigned students
