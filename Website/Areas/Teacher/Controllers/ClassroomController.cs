@@ -286,7 +286,7 @@ namespace Website.Areas.Teacher.Controllers
                             userGroup.IsActive = false;
                             userGroup.ChangeBy = this.User.Identity.Name;
                             userGroup.ChangeDate = DateTime.Now;
-                            db.Entry<Group>(item).State = EntityState.Modified;
+                            db.Entry<UserGroup>(userGroup).State = EntityState.Modified;
                         }
                     }
                     //Add Students
@@ -312,7 +312,7 @@ namespace Website.Areas.Teacher.Controllers
                                 userGroup.IsActive = true;
                                 userGroup.ChangeBy = this.User.Identity.Name;
                                 userGroup.ChangeDate = DateTime.Now;
-                                db.Entry<Group>(item).State = EntityState.Modified;
+                                db.Entry<UserGroup>(userGroup).State = EntityState.Modified;
                             }
 
                             if (data.ItemList.FindAll(s => s.StudentUserId == data.Included[i]).Count == 0)
@@ -336,7 +336,7 @@ namespace Website.Areas.Teacher.Controllers
                                      newStudent.IsActive = true;
                                      newStudent.ChangeBy = this.User.Identity.Name;
                                      newStudent.ChangeDate = DateTime.Now;
-                                     db.Entry<Group>(item).State = EntityState.Modified;
+                                     db.Entry<UserRelation>(newStudent).State = EntityState.Modified;
                                  }
                             }
 

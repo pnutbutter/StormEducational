@@ -13,7 +13,11 @@
 Create ability to assign assignment to students
 - (done) Create ability to make a class with students
 - Assign students by class
-- Search for students to assign by name
-- Assign students by teacher student relationship
-- Add ability to see assigned students
-- Add ability to removed assigned students
+- (done? need to test) Search for students to assign by name
+- (done) Assign students by teacher student relationship
+- (done) Add ability to see assigned students
+- (done) Add ability to removed assigned students
+
+
+Update Student Assignments area
+- Students only see assignments assigned to them
