@@ -22,16 +22,20 @@ Create ability to assign assignment to students
 
 
 Update Student Assignments area
-- Students only see assignments assigned to them
+- (done) Students only see assignments assigned to them
 
 Register Bug
 - (done) Registered as Student - but didn't make me a student role
-- - Looked in Role and a Student Role does exist
-- - Shows User account as IsActive == false
-- - Gary's song - Hole in a Bottle
-
-Ability for teachers to see assignments turned in
-- Status Paged linked to on Assignments Page
+- - (done) Looked in Role and a Student Role does exist
+- - (done) Shows User account as IsActive == false
+- - (done) Gary's song - Hole in a Bottle
 
 Student Assignment Actions
-- Ability to submit user assignment
+- Ability to submit user assignment to teacher for grading
+- (done but needs test) Show past assignments already submitted
+- Show grade (modal window?)
+
+Ability for teachers to see assignments turned in and Grade/comment
+- Status Paged linked to on Assignments Page
+- - List assignements and status
+- - Add grade/comment (even for those not submitted)

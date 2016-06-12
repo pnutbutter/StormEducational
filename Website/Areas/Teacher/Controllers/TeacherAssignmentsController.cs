@@ -322,11 +322,11 @@ namespace Website.Areas.Teacher.Controllers
             }
             if (data.Excluded != null && data.Excluded.Length > 0)
             {
-                return RedirectToAction("Assign", new { Message = "Students removed from class", id = data.Id });
+                return RedirectToAction("Assign", new { Message = "Students removed from assignment", id = data.Id });
             }
             else
             {
-                return RedirectToAction("Assign", new { Message = "Students added to class", id = data.Id });
+                return RedirectToAction("Assign", new { Message = "Students given assignment", id = data.Id });
             }
         }
     }
