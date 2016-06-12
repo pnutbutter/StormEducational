@@ -13,7 +13,7 @@
 Create ability to assign assignment to students
 - (done) Create ability to make a class with students
 - Assign students by class
-- (done? need to test) Search for students to assign by name
+- (done) Search for students to assign by name
 - (done) Assign students by teacher student relationship
 - (done) Add ability to see assigned students
 - (done) Add ability to removed assigned students
@@ -21,3 +21,9 @@ Create ability to assign assignment to students
 
 Update Student Assignments area
 - Students only see assignments assigned to them
+
+Register Bug
+- Registered as Student - but didn't make me a student role
+- - Looked in Role and a Student Role does exist
+- - Shows User account as IsActive == false
+- - Gary's song - Hole in a Bottle

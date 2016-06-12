@@ -232,6 +232,7 @@ namespace Website.Controllers
                     newUser.CreateDate = DateTime.UtcNow;
                     newUser.FirstName = model.FirstName;
                     newUser.LastName = model.LastName;
+                    newUser.IsActive = true;
                     newUser.AspNetUserId = user.Id;
 
                     db.Users.Add(newUser);
