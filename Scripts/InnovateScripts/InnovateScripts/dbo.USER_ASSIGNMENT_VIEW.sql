@@ -11,6 +11,8 @@ SELECT
       ,a.[AssignmentTypeId]
       ,a.[AssignmentParentId]
       ,a.[DueDate]
+	  ,ua.IsSubmitted
+	  ,ua.SubmittedDate
       ,a.[AssignmentTitle]
       ,a.[AssignmentDescription]
       ,a.[AssignmentSpanishTitle]

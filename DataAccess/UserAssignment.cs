@@ -46,6 +46,10 @@ namespace DataAccess
         [StringLength(50)]
         public string ChangeBy { get; set; }
 
+        public bool IsSubmitted { get; set; }
+
+        public DateTime? SubmittedDate { get; set; }
+
         public virtual Assignment Assignment { get; set; }
 
         public virtual User User { get; set; }

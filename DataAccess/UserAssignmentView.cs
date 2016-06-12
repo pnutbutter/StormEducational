@@ -61,5 +61,9 @@ namespace DataAccess
         public int? VocabularyId { get; set; }
 
         public string AssignmentTypeTitle { get; set; }
+
+        public bool IsSubmitted { get; set; }
+
+        public DateTime? SubmittedDate { get; set; }
     }
 }
