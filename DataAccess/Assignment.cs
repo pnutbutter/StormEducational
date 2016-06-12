@@ -14,7 +14,6 @@ namespace DataAccess
         {
             Assignment1 = new HashSet<Assignment>();
             UserAssignments = new HashSet<UserAssignment>();
-            VocabularyAssignments = new HashSet<VocabularyAssignment>();
         }
 
         public int AssignmentId { get; set; }
@@ -63,9 +62,6 @@ namespace DataAccess
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserAssignment> UserAssignments { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VocabularyAssignment> VocabularyAssignments { get; set; }
 
         public int UserId { get; set; }
 

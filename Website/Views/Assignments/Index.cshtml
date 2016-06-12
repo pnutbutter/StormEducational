@@ -9,20 +9,22 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
-<!-- /.row -->
-<div class="row">
-    <div class="col-lg-12">
-        <h2 class="page-header">Make New Assignment</h2>
+@*
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Make New Assignment</h2>
+        </div>
+        <div class="col-lg-2">
+            <a href="@Url.Action("Word", "Vocabulary", new { Area="Project" })" class="text-center btn btn-primary" style="border: 1px solid #000; border-radius: .5em; display: inline-block; padding: 1em;">
+                <i class="fa fa-book fa-5x"></i>
+                <p>
+                    New Vocabulary Word
+                </p>
+            </a>
+        </div>
     </div>
-    <div class="col-lg-2">
-        <a href="@Url.Action("Word", "Vocabulary", new { Area="Project" })" class="text-center btn btn-primary" style="border: 1px solid #000; border-radius: .5em; display: inline-block; padding: 1em;">
-            <i class="fa fa-book fa-5x"></i>
-            <p>
-                New Vocabulary Word
-            </p>
-        </a>
-    </div>
-</div>
+*@
 <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header">Current Assignments</h2>
@@ -41,16 +43,23 @@
                 { 
                 <tr>
                     <td>
-                        Word "@this.Model.ItemList[i].Word"
+                        @this.Model.ItemList[i].AssignmentTitle
                     </td>
                     <td>
-                        Vocabulary
+                        @this.Model.ItemList[i].AssignmentTypeTitle
                     </td>
                     <td class="text-right">
-                        <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Edit</a>
-                        <a class="btn btn-lg btn-success" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Submit</a>
-                        <a class="btn btn-lg btn-warning" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Delete</a>
+                        @if (this.Model.ItemList[i].AssignmentTypeId == 1 && this.Model.ItemList[i].VocabularyId.HasValue)
+                        {
+                            <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Edit</a>
+                            <a class="btn btn-lg btn-success" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Submit</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", UserAssignmentId = this.Model.ItemList[i].UserAssignmentId })">Start Assignment</a>
+                        }
                     </td>
+
                 </tr>
                 }
             </tbody>

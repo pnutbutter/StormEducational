@@ -11,7 +11,7 @@ namespace DataAccess
     {
         public int VocabularyAssignmentId { get; set; }
 
-        public int AssignmentId { get; set; }
+        public int UserAssignmentId { get; set; }
 
         public int VocabularyId { get; set; }
 
@@ -31,7 +31,7 @@ namespace DataAccess
         [StringLength(50)]
         public string ChangeBy { get; set; }
 
-        public virtual Assignment Assignment { get; set; }
+        public virtual UserAssignment UserAssignment { get; set; }
 
         public virtual Vocabulary Vocabulary { get; set; }
     }

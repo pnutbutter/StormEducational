@@ -8,6 +8,6 @@ namespace Website.Models.AssignmentsData
 {
     public class AssignmentsIndex
     {
-        public List<Vocabulary> ItemList { get; set; }
+        public List<UserAssignmentView> ItemList { get; set; }
     }
 }
