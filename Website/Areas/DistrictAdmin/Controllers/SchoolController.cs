@@ -71,7 +71,6 @@ namespace Website.Areas.DistrictAdmin.Controllers
                 //Add group relation
                 GroupRelation groupRelation = new GroupRelation();
 
-                //Gary replace with the correct childGroupId
                 groupRelation.ChildGroupId = item.GroupId;
                 groupRelation.ParentGroupId = data.DistrictId;
                 groupRelation.IsActive = true;

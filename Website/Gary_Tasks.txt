@@ -5,7 +5,7 @@ Ability to pull up any class in school
 - Find by teacher?
 
 District Admin:
-Ability to Add School to district
+Ability to Add School to district - Done (06/12/2016)
 Ability to Add/Remove School Admins to School
 Ability to Add/Remove Teachers to School
 Ability to pull up any class in District
