@@ -65,5 +65,9 @@ namespace DataAccess
         public bool IsSubmitted { get; set; }
 
         public DateTime? SubmittedDate { get; set; }
+
+        public int Grade { get; set; }
+
+        public string GradeDescription { get; set; }
     }
 }

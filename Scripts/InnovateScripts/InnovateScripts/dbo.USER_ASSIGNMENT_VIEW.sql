@@ -13,6 +13,8 @@ SELECT
       ,a.[DueDate]
 	  ,ua.IsSubmitted
 	  ,ua.SubmittedDate
+	  ,ua.Grade
+	  ,ua.GradeDescription
       ,a.[AssignmentTitle]
       ,a.[AssignmentDescription]
       ,a.[AssignmentSpanishTitle]
