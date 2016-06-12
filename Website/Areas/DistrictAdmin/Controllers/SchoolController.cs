@@ -136,7 +136,7 @@ namespace Website.Areas.DistrictAdmin.Controllers
             try
             {
                 Group item = db.Groups.Find(id);
-                if (item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                if (item.GroupTypeId == 2 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
                 {
                     data.GroupName = item.GroupName;
                     data.GroupId = item.GroupId;
@@ -166,7 +166,7 @@ namespace Website.Areas.DistrictAdmin.Controllers
                 }
 
                 Group item = db.Groups.Find(data.GroupId);
-                if (item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                if (item.GroupTypeId == 2 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
                 {
                     //set group name for return message
                     data.GroupName = item.GroupName;
