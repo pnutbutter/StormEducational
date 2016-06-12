@@ -30,78 +30,95 @@
         <h2 class="page-header">Current Assignments</h2>
     </div>
     <div class="col-lg-12">
-        <table id="example" class="table table-striped table-bordered" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>Assignment</th>
-                    <th>Type</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (int i = 0; i < this.Model.ItemList.Count; i++ )
-                { 
-                <tr>
-                    <td>
-                        @this.Model.ItemList[i].AssignmentTitle
-                    </td>
-                    <td>
-                        @this.Model.ItemList[i].AssignmentTypeTitle
-                    </td>
-                    <td class="text-right">
-                        @if (this.Model.ItemList[i].AssignmentTypeId == 1 && this.Model.ItemList[i].VocabularyId.HasValue)
-                        {
-                            <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Edit</a>
-                            <a class="btn btn-lg btn-success" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Submit</a>
-                        }
-                        else
-                        {
-                            <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", UserAssignmentId = this.Model.ItemList[i].UserAssignmentId })">Start Assignment</a>
-                        }
-                    </td>
+        @if (this.Model.ItemList != null && this.Model.ItemList.Count > 0)
+        {
+            <table id="example" class="table table-striped table-bordered" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Type</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < this.Model.ItemList.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @this.Model.ItemList[i].AssignmentTitle
+                            </td>
+                            <td>
+                                @this.Model.ItemList[i].AssignmentTypeTitle
+                            </td>
+                            <td class="text-right">
+                                @if (this.Model.ItemList[i].AssignmentTypeId == 1 && this.Model.ItemList[i].VocabularyId.HasValue)
+                                {
+                                    <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Edit</a>
+                                    <a class="btn btn-lg btn-success" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.ItemList[i].VocabularyId })">Submit</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", UserAssignmentId = this.Model.ItemList[i].UserAssignmentId })">Start Assignment</a>
+                                }
+                            </td>
 
-                </tr>
-                }
-            </tbody>
-        </table>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-center">
+                <p>No assignments.</p>
+            </div>
+        }
     </div>
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h2 class="page-header">Past Assignments (TODO)</h2>
+        <h2 class="page-header">Submitted Assignments</h2>
     </div>
     <div class="col-lg-12">
-
-        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>Assignment</th>
-                    <th>Type</th>
-                    <th>Grade</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (int i = 0; i < this.Model.SubmittedItemList.Count; i++)
-                {
+        @if (this.Model.SubmittedItemList != null && this.Model.SubmittedItemList.Count > 0)
+        {
+            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
                     <tr>
-                        <td>
-                            @this.Model.SubmittedItemList[i].AssignmentTitle
-                        </td>
-                        <td>
-                            @this.Model.SubmittedItemList[i].AssignmentTypeTitle
-                        </td>
-                        <td>
-                            @(this.Model.SubmittedItemList[i].Grade)
-                        </td>
-                        <td class="text-right">
-                            <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.SubmittedItemList[i].VocabularyId })">Edit</a>
-                            <a class="btn btn-lg btn-success" href="@Url.Action("Word","Vocabulary", new {Area="Project", id="2"})">View Comments</a>
-                        </td>
-
+                        <th>Assignment</th>
+                        <th>Type</th>
+                        <th>Grade</th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < this.Model.SubmittedItemList.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @this.Model.SubmittedItemList[i].AssignmentTitle
+                            </td>
+                            <td>
+                                @this.Model.SubmittedItemList[i].AssignmentTypeTitle
+                            </td>
+                            <td>
+                                @(this.Model.SubmittedItemList[i].Grade)
+                            </td>
+                            <td class="text-right">
+                                <a class="btn btn-lg btn-primary" href="@Url.Action("Word", "Vocabulary", new { Area = "Project", id = this.Model.SubmittedItemList[i].VocabularyId })">Edit</a>
+                                <a class="btn btn-lg btn-success" href="@Url.Action("Word","Vocabulary", new {Area="Project", id="2"})">View Comments</a>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="text-center">
+                <p>No submitted assignments.</p>
+            </div>
+        }
     </div>
 </div>
