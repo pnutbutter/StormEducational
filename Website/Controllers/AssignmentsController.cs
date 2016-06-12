@@ -14,7 +14,7 @@ namespace Website.Controllers
         {
             AssignmentsIndex data = new AssignmentsIndex();
             int userid = GetCurrentUser().UserId;
-            data.ItemList = db.Vocabularies.Where(v => v.UserId == userid).ToList();
+            data.ItemList = db.UserAssignmentViews.Where(v => v.UserId == userid).ToList();
 
             return View(data);
         }

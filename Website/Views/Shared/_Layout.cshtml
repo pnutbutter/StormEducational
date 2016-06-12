@@ -353,9 +353,14 @@
             <!--<div class="container-fluid body-content">-->
             @RenderBody()
             <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - teaches.me @RenderSection("copyright", required: false)</p>
-            </footer>
+            <div class="row">
+                <div class="col-sm-12">
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year - teaches.me @RenderSection("copyright", required: false)</p>
+                    </footer>
+                </div>
+            </div>
+            
         </div>
 </div>
             @Scripts.Render("~/bundles/js")

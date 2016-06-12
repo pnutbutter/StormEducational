@@ -12,6 +12,8 @@ namespace Website.Areas.Project.Models.VocabularyData
     {
         public int VocabularyId { get; set; }
 
+        public int UserAssignmentId { get; set; }
+
         public int UserId { get; set; }
 
         [Required]

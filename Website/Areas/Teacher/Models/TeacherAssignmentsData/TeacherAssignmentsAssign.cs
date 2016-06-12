@@ -8,14 +8,24 @@ namespace Website.Areas.Teacher.Models.TeacherAssignmentsData
 {
     public class TeacherAssignmentsAssign
     {
-        public int AssignmentId { get; set; }
+        public DateTime[] DueDates { get; set; }
 
         public string Message { get; set; }
 
+        public string Search { get; set; }
+
         public List<TeacherStudentView> ItemList { get; set; }
 
-        public int[] SelectedStudents { get; set; }
+        public List<UserView> SearchList { get; set; }
 
-        public DateTime[] DueDates { get; set; }
+        public List<UserView> AssignedList { get; set; }
+
+        public int Id { get; set; }
+
+        public int SchoolId { get; set; }
+
+        public int[] Included { get; set; }
+
+        public int[] Excluded { get; set; }
     }
 }

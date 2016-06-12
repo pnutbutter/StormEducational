@@ -20,7 +20,7 @@ namespace Website.Areas.Teacher.Controllers
         {
             ClassroomIndex data = new ClassroomIndex();
             int userid = this.GetCurrentUser().UserId;
-            data.ItemList = db.GroupViews.Where(g => g.IsActive==true && g.GroupTypeId == 6 && g.OwnerUserId!=null && g.OwnerUserId.Value == userid).ToList();
+            data.ItemList = db.GroupViews.Where(g => g.IsActive == true && g.GroupTypeId == 6 && g.OwnerUserId != null && g.OwnerUserId.Value == userid).ToList();
             data.Message = Message;
 
             return View(data);
@@ -46,7 +46,7 @@ namespace Website.Areas.Teacher.Controllers
                     return View(data);
                 }
 
-                
+
 
                 Group item = new Group();
                 item.GroupName = data.GroupName;
@@ -116,22 +116,24 @@ namespace Website.Areas.Teacher.Controllers
         public ActionResult ConfirmDelete(int id)
         {
             ClassroomDelete data = new ClassroomDelete();
-            try{
+            try
+            {
                 Group item = db.Groups.Find(id);
-                if(item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                if (item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
                 {
                     data.GroupName = item.GroupName;
                     data.GroupId = item.GroupId;
-                }else
+                }
+                else
                 {
                     throw new ArgumentException("You do not have permissions to delete this group");
-                }            
+                }
             }
             catch (Exception e)
             {
                 throw;
             }
-            
+
             return View(data);
         }
 
@@ -147,7 +149,7 @@ namespace Website.Areas.Teacher.Controllers
                 }
 
                 Group item = db.Groups.Find(data.GroupId);
-                if(item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                if (item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
                 {
                     //set group name for return message
                     data.GroupName = item.GroupName;
@@ -159,10 +161,11 @@ namespace Website.Areas.Teacher.Controllers
 
                     db.Entry<Group>(item).State = EntityState.Modified;
                     db.SaveChanges();
-                }else
+                }
+                else
                 {
                     throw new ArgumentException("You do not have permissions to delete this group");
-                }  
+                }
             }
             catch (Exception e)
             {
@@ -172,16 +175,71 @@ namespace Website.Areas.Teacher.Controllers
         }
 
         [HttpGet]
-        public ActionResult Assign(int id, string Message, string Search)
+        public ActionResult Assign(int id, string Message, string Search, int? SchoolId)
         {
             ClassroomAssign data = new ClassroomAssign();
             try
             {
                 Group item = db.Groups.Find(id);
-                if (item.GroupTypeId == 6 && (item.OwnerUserId == this.GetCurrentUser().UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                UserView currentUser = this.GetCurrentUser();
+
+                //populate lists
+                if (item.GroupTypeId == 6 && (item.OwnerUserId == currentUser.UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
                 {
-                    data.ItemList = db.TeacherStudentViews.Where(t => t.TeacherUserId == this.GetCurrentUser().UserId).ToList();
+                    //get default school id to search by
+                    var schoolQuery = from t1 in db.UserViews
+                                      join t2 in db.UserGroupViews on t1.UserId equals t2.UserId
+                                      where t2.UserId == currentUser.UserId && t2.GroupTypeId == 2
+                                      select t2;
+                    if (schoolQuery.Any())
+                    {
+                        List<UserGroupView> userGroupViewList = schoolQuery.ToList();
+                        data.SchoolId = userGroupViewList.FirstOrDefault().GroupId;
+                    }
+
+                    //get assigned students
+                    var assignedStudents = from t1 in db.UserViews
+                                           join t2 in db.UserGroupViews on t1.UserId equals t2.UserId
+                                           where t2.GroupId == id
+                                           select t1;
+                    if (assignedStudents.Any())
+                    {
+                        data.AssignedList = assignedStudents.ToList();
+                    }
+
+                    data.Search = Search;
+
+                    //populate lists
+                    if (SchoolId.HasValue)
+                    {
+                        var query = from t1 in db.UserViews
+                                    join t2 in db.UserGroupViews on t1.UserId equals t2.UserId
+                                    where t2.GroupTypeId == 2 && t2.GroupId == SchoolId.Value
+                                    select t1;
+                        if (query.Any())
+                        {
+                            data.SearchList = query.ToList();
+                        }
+                        else
+                        {
+                            data.SearchList = new List<UserView>();
+                        }
+                        data.ItemList = new List<TeacherStudentView>();
+
+                    }
+                    else if (!string.IsNullOrWhiteSpace(Search))
+                    {
+                        data.SearchList = db.UserViews.Where(u => u.FirstName.ToLower().Contains(Search.ToLower()) || u.FirstName.ToLower().Contains(Search.ToLower())).ToList();
+                        data.ItemList = new List<TeacherStudentView>();
+                    }
+                    else
+                    {
+                        data.ItemList = db.TeacherStudentViews.Where(t => t.TeacherUserId == currentUser.UserId).ToList();
+                        data.SearchList = new List<UserView>();
+                    }
+
                     data.Message = Message;
+                    data.Id = id;
                 }
                 else
                 {
@@ -194,6 +252,118 @@ namespace Website.Areas.Teacher.Controllers
             }
 
             return View(data);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Assign(ClassroomAssign data)
+        {
+            try
+            {
+                if (!this.ModelState.IsValid)
+                {
+                    return View(data);
+                }
+                Group item = db.Groups.Find(data.Id);
+
+                UserView currentUser = this.GetCurrentUser();
+
+                //populate lists
+                if (item.GroupTypeId == 6 && (item.OwnerUserId == currentUser.UserId || User.IsInRole("Admin") || User.IsInRole("DistrictAdmin") || User.IsInRole("SchoolAdmin")))
+                {
+
+                    data.ItemList = db.TeacherStudentViews.Where(t => t.TeacherUserId == currentUser.UserId).ToList();
+
+                    //remove from class
+                    if (data.Excluded!=null && data.Excluded.Length > 0)
+                    {
+                        
+                        //soft delete class user relationship
+                        for (int i = 0; i < data.Excluded.Length; i++)
+                        {
+                            int userid = data.Excluded[i];
+                            UserGroup userGroup = db.UserGroups.FirstOrDefault(u => u.UserId == userid && u.GroupId == data.Id);
+                            userGroup.IsActive = false;
+                            userGroup.ChangeBy = this.User.Identity.Name;
+                            userGroup.ChangeDate = DateTime.Now;
+                            db.Entry<UserGroup>(userGroup).State = EntityState.Modified;
+                        }
+                    }
+                    //Add Students
+                    if (data.Included!=null && data.Included.Length > 0)
+                    {
+                        for (int i = 0; i < data.Included.Length; i++)
+                        {
+                            int userid = data.Included[i];
+                            UserGroup userGroup = db.UserGroups.FirstOrDefault(u => u.UserId == userid && u.GroupId == data.Id);
+                            if(userGroup==null || userGroup.UserGroupId==0)
+                            {
+                                userGroup = new UserGroup();
+                                userGroup.UserId = data.Included[i];
+                                userGroup.GroupId = data.Id;
+                                userGroup.IsActive = true;
+                                userGroup.ChangeBy = this.User.Identity.Name;
+                                userGroup.ChangeDate = DateTime.Now;
+                                userGroup.CreateBy = this.User.Identity.Name;
+                                userGroup.CreateDate = DateTime.Now;
+                                db.UserGroups.Add(userGroup);
+                            }else
+                            {
+                                userGroup.IsActive = true;
+                                userGroup.ChangeBy = this.User.Identity.Name;
+                                userGroup.ChangeDate = DateTime.Now;
+                                db.Entry<UserGroup>(userGroup).State = EntityState.Modified;
+                            }
+
+                            if (data.ItemList.FindAll(s => s.StudentUserId == data.Included[i]).Count == 0)
+                            {
+                                UserRelation newStudent = db.UserRelations.FirstOrDefault(u => u.ChildUserId == userid && u.ParentUserId == currentUser.UserId);
+                                 if (userGroup == null || userGroup.UserGroupId == 0)
+                                 {
+                                     newStudent = new UserRelation();
+                                     newStudent.ChildUserId = data.Included[i];
+                                     newStudent.ParentUserId = currentUser.UserId;
+
+                                     newStudent.IsActive = true;
+                                     newStudent.ChangeBy = this.User.Identity.Name;
+                                     newStudent.ChangeDate = DateTime.Now;
+                                     newStudent.CreateBy = this.User.Identity.Name;
+                                     newStudent.CreateDate = DateTime.Now;
+
+                                     db.UserRelations.Add(newStudent);
+                                 }else
+                                 {
+                                     newStudent.IsActive = true;
+                                     newStudent.ChangeBy = this.User.Identity.Name;
+                                     newStudent.ChangeDate = DateTime.Now;
+                                     db.Entry<UserRelation>(newStudent).State = EntityState.Modified;
+                                 }
+                            }
+
+                        }
+                    }
+
+                    db.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentException("You do not have permissions to assign students to this group");
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            if (data.Excluded != null && data.Excluded.Length > 0)
+            {
+                return RedirectToAction("Assign", new { Message = "Students removed from class", id = data.Id });
+            }else
+            {
+                return RedirectToAction("Assign", new { Message = "Students added to class", id = data.Id });
+            }
+
+            
         }
     }
 }

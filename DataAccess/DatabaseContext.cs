@@ -65,10 +65,10 @@ namespace DataAccess
                 .WithRequired(e => e.Assignment)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Assignment>()
+            modelBuilder.Entity<UserAssignment>()
                 .HasMany(e => e.VocabularyAssignments)
-                .WithRequired(e => e.Assignment)
-                .HasForeignKey(e => e.AssignmentId)
+                .WithRequired(e => e.UserAssignment)
+                .HasForeignKey(e => e.UserAssignmentId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Vocabulary>()

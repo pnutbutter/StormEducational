@@ -9,6 +9,11 @@ namespace DataAccess
     [Table("UserAssignment")]
     public partial class UserAssignment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public UserAssignment()
+        {
+            VocabularyAssignments = new HashSet<VocabularyAssignment>();
+        }
         public int UserAssignmentId { get; set; }
 
         public int AssignmentId { get; set; }
@@ -46,5 +51,8 @@ namespace DataAccess
         public virtual User User { get; set; }
 
         public virtual User User1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VocabularyAssignment> VocabularyAssignments { get; set; }
     }
 }

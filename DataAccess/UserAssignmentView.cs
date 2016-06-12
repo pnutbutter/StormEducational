@@ -57,5 +57,9 @@ namespace DataAccess
         public string AssignmentSpanishTitle { get; set; }
 
         public string AssignmentSpanishDescription { get; set; }
+
+        public int? VocabularyId { get; set; }
+
+        public string AssignmentTypeTitle { get; set; }
     }
 }

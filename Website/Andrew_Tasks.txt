@@ -1,3 +1,37 @@
 ﻿Create ability to assign students to a class
+- (done) show list of students assigned to teacher
+- (done) Search all users by name to assign to class
+- (done) Get list of students from school
+- (done) Add ability to assign student to class and teacher
+- (done) Add ability to see assigned students
+- (done) Add ability to removed assigned students
+
+-- Add school to table in case of two students with same name?
+-- add student by email if they don't exist? (triggers email to student email with custom register?)
+-- ability to have subs do assignments?
+
 Create ability to assign assignment to students
-(done) Create ability to make a class with students
+- (done) Create ability to make a class with students
+- Assign students by class
+- Add due date to each student
+- (done) Search for students to assign by name
+- (done) Assign students by teacher student relationship
+- (done) Add ability to see assigned students
+- (done) Add ability to removed assigned students
+- Fix verbiage in screen to not say class but assignment/assign
+
+
+Update Student Assignments area
+- Students only see assignments assigned to them
+
+Register Bug
+- (done) Registered as Student - but didn't make me a student role
+- - Looked in Role and a Student Role does exist
+- - Shows User account as IsActive == false
+- - Gary's song - Hole in a Bottle
+
+Ability for teachers to see assignments turned in
+- Status Paged linked to on Assignments Page
+
+Student Assignment Actions
+- Ability to submit user assignment

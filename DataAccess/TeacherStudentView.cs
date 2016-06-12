@@ -23,8 +23,7 @@ namespace DataAccess
         public string TeacherLastName { get; set; }
 
         [Column(Order = 3)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int TeacherAspNetUserId { get; set; }
+        public string TeacherAspNetUserId { get; set; }
 
         [Column(Order = 4)]
         public string TeacherEmail { get; set; }
@@ -43,8 +42,7 @@ namespace DataAccess
         public string StudentLastName { get; set; }
 
         [Column(Order = 8)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int StudentAspNetUserId { get; set; }
+        public string StudentAspNetUserId { get; set; }
 
         [Column(Order = 9)]
         public string StudentEmail { get; set; }
