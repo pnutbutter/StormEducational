@@ -134,7 +134,7 @@ namespace Website.Areas.GroupAdmin.Controllers
                     myMessage.AddTo(emailArray[i]);
                     myMessage.From = new System.Net.Mail.MailAddress("Gary03082000@gmail.com", "Gary L.");
                     myMessage.Subject = "New Admin Request";
-                    myMessage.Text = "Has requested you as an administrator ...  Please click on the link below to access the application. http://www.bing.com/";
+                    myMessage.Text = "Teaches.Me user Gary03082000@gmail.com has requested you as an administrator for Teaches.Me.  Please click on the link below to access the application and register an administrator. http://stormeducational.azurewebsites.net/";
 
                     var credentials = new NetworkCredential(
                                ConfigurationManager.AppSettings["mailAccount"],
