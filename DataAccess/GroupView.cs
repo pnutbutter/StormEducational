@@ -21,8 +21,7 @@
 
         [Key]
         [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ParentGroupId { get; set; }
+        public int? ParentGroupId { get; set; }
 
         [Key]
         [Column(Order = 3)]
