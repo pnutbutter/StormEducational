@@ -40,7 +40,26 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.PartOfSpeech, htmlAttributes: new { @class = "control-label col-sm-12" })
                                         <div class="col-md-12">
-                                            @Html.EditorFor(model => model.PartOfSpeech, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default radiobox orange">
+                                                    <input name="PartOfSpeech" value="adjative" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("active") ? "class=\"active\"" : String.Empty) type="radio">Adjative
+                                                </label>
+                                                <label class="btn btn-default radiobox red">
+                                                    <input name="PartOfSpeech" value="noun" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("noun") ? "class=\"active\"" : String.Empty) type="radio">Noun
+                                                </label>
+                                                <label class="btn btn-default radiobox green">
+                                                    <input name="PartOfSpeech" value="verb" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("verb") ? "class=\"active\"" : String.Empty) type="radio">Verb
+                                                </label>
+                                                <label class="btn btn-default radiobox blue">
+                                                    <input name="PartOfSpeech" value="preposition" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("preposition") ? "class=\"active\"" : String.Empty) type="radio">Preposition
+                                                </label>
+                                                <label class="btn btn-default radiobox purple">
+                                                    <input name="PartOfSpeech" value="adverb" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("adverb") ? "class=\"active\"" : String.Empty) type="radio">Adverb
+                                                </label>
+                                                <label class="btn btn-default radiobox yellow">
+                                                    <input name="PartOfSpeech" value="pronoun" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("pronoun") ? "class=\"active\"" : String.Empty) type="radio">Pronoun
+                                                </label>
+                                            </div>
                                             @Html.ValidationMessageFor(model => model.PartOfSpeech, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
@@ -58,7 +77,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Connotation, htmlAttributes: new { @class = "control-label col-sm-12" })
                                         <div class="col-md-12">
-                                            @Html.EditorFor(model => model.Connotation, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.DropDownList("Connotation", (IEnumerable<SelectListItem>)ViewBag.ConnotationList, htmlAttributes: new { @class = "form-control" })
                                             @Html.ValidationMessageFor(model => model.Connotation, "", new { @class = "text-danger" })
                                         </div>
                                     </div>

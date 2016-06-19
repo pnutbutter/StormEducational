@@ -68,6 +68,14 @@ namespace Website.Areas.Project.Controllers
 
             ViewBag.VerbTenseTypeId = new SelectList(db.VerbTenseTypes, "VerbTenseTypeId", "VerbTenseTypeName");
 
+            ViewBag.ConnotationList = new List<SelectListItem>()
+            {
+                new SelectListItem { Text="", Value=""}
+                , new SelectListItem{Text="Positive",Value="Positive"}
+                , new SelectListItem{Text="Negative", Value="Negative"}
+                , new SelectListItem{Text="Neutral", Value="Neutral"}
+            };
+
             return View(data);
         }
 
@@ -79,6 +87,14 @@ namespace Website.Areas.Project.Controllers
             try
             {
                 ViewBag.VerbTenseTypeId = new SelectList(db.VerbTenseTypes, "VerbTenseTypeId", "VerbTenseTypeName");
+                ViewBag.ConnotationList = new List<SelectListItem>()
+                {
+                    new SelectListItem { Text="", Value=""}
+                    , new SelectListItem{Text="Positive",Value="Positive"}
+                    , new SelectListItem{Text="Negative", Value="Negative"}
+                    , new SelectListItem{Text="Neutral", Value="Neutral"}
+                };
+
                 if (!this.ModelState.IsValid)
                 {
                     return View(data);
@@ -260,7 +276,7 @@ namespace Website.Areas.Project.Controllers
             }
 
 
-            return View(data);
+            return RedirectToAction("Index", "Assignments", new { Area = "" });
         }
     }
 }

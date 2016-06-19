@@ -62,3 +62,91 @@
 {
     background-color: white;
 }
+
+.radiobox.orange
+{
+    background-color: #ffa500;
+    color: white;
+}
+
+    .radiobox.orange:hover,
+    .radiobox.orange:focus,
+    .radiobox.orange.focus,
+    .radiobox.orange:active,
+    .radiobox.orange.active {
+      color: black;
+      background-color: #ffe4b2;
+    }
+
+.radiobox.red
+{
+    background-color: #ff0000;
+    color: white;
+}
+
+    .radiobox.red:hover,
+    .radiobox.red:focus,
+    .radiobox.red.focus,
+    .radiobox.red:active,
+    .radiobox.red.active{
+        color: black;
+        background-color: #ff9999;
+    }
+
+.radiobox.green
+{
+    background-color: #007f00;
+    color: white;
+}
+    .radiobox.green:hover,
+    .radiobox.green:focus,
+    .radiobox.green.focus,
+    .radiobox.green:active,
+    .radiobox.green.active {
+        color: black;
+        background-color: #b2d8b2;
+    }
+
+.radiobox.blue
+{
+    background-color: #0000FF;
+    color: white;
+}
+    .radiobox.blue:hover,
+    .radiobox.blue:focus,
+    .radiobox.blue.focus,
+    .radiobox.blue:active,
+    .radiobox.blue.active {
+        color: black;
+        background-color: #ccccff;
+    }
+
+.radiobox.purple
+{
+    background-color: #551A8B;
+    color: white;
+}
+
+    .radiobox.purple:hover,
+    .radiobox.purple:focus,
+    .radiobox.purple.focus,
+    .radiobox.purple:active,
+    .radiobox.purple.active {
+        color: black;
+        background-color: #ddd1e7;
+    }
+
+.radiobox.yellow
+{
+    background-color: #FFFF00;
+    color: #333;
+}
+
+    .radiobox.yellow:hover,
+    .radiobox.yellow:focus,
+    .radiobox.yellow.focus,
+    .radiobox.yellow:active,
+    .radiobox.yellow.active {
+        color: black;
+        background-color: #ffffcc;
+    }
