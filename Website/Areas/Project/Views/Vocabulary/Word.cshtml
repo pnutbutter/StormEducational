@@ -42,22 +42,22 @@
                                         <div class="col-md-12">
                                             <div class="btn-group" data-toggle="buttons">
                                                 <label class="btn btn-default radiobox orange @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("active") ? "active" : String.Empty)">
-                                                    <input name="PartOfSpeech" value="adjative" type="radio">Adjative
+                                                    <input name="PartOfSpeech" value="adjative" type="radio"><i class="fa fa-square-o"></i> Adjative
                                                 </label>
                                                 <label class="btn btn-default radiobox red @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("noun") ? "active" : String.Empty)">
-                                                    <input name="PartOfSpeech" value="noun" type="radio">Noun
+                                                    <input name="PartOfSpeech" value="noun" type="radio"><i class="fa fa-square-o"></i> Noun
                                                 </label>
                                                 <label class="btn btn-default radiobox green @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("verb") ? "active" : String.Empty)">
-                                                    <input name="PartOfSpeech" value="verb" type="radio">Verb
+                                                    <input name="PartOfSpeech" value="verb" type="radio"><i class="fa fa-square-o"></i> Verb
                                                 </label>
                                                 <label class="btn btn-default radiobox blue @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("preposition") ? "active" : String.Empty)">
-                                                    <input name="PartOfSpeech" value="preposition" type="radio">Preposition
+                                                    <input name="PartOfSpeech" value="preposition" type="radio"><i class="fa fa-square-o"></i> Preposition
                                                 </label>
                                                 <label class="btn btn-default radiobox purple @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("adverb") ? "active" : String.Empty)">
-                                                    <input name="PartOfSpeech" value="adverb" type="radio">Adverb
+                                                    <input name="PartOfSpeech" value="adverb" type="radio"><i class="fa fa-square-o"></i> Adverb
                                                 </label>
                                                 <label class="btn btn-default radiobox yellow @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("pronoun") ? "active" : String.Empty)">
-                                                    <input name="PartOfSpeech" value="pronoun" type="radio">Pronoun
+                                                    <input name="PartOfSpeech" value="pronoun" type="radio"><i class="fa fa-square-o"></i> Pronoun
                                                 </label>
                                             </div>
                                             @Html.ValidationMessageFor(model => model.PartOfSpeech, "", new { @class = "text-danger" })

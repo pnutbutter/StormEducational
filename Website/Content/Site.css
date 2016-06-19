@@ -63,90 +63,54 @@
     background-color: white;
 }
 
-.radiobox.orange
+.radiobox
 {
-    background-color: #ffa500;
-    color: white;
+    line-height: 2em;
 }
 
-    .radiobox.orange:hover,
-    .radiobox.orange:focus,
-    .radiobox.orange.focus,
-    .radiobox.orange:active,
-    .radiobox.orange.active {
-      color: black;
-      background-color: #ffe4b2;
-    }
-
-.radiobox.red
+.radiobox .fa
 {
-    background-color: #ff0000;
-    color: white;
+    width: 1.3em;
+    font-size: 2em;
+    text-shadow: 1px 1px 1px #000;
 }
 
-    .radiobox.red:hover,
-    .radiobox.red:focus,
-    .radiobox.red.focus,
-    .radiobox.red:active,
-    .radiobox.red.active{
-        color: black;
-        background-color: #ff9999;
-    }
-
-.radiobox.green
+.radiobox:hover .fa-square-o:before,
+.radiobox:focus .fa-square-o:before,
+.radiobox.focus .fa-square-o:before,
+.radiobox:active .fa-square-o:before,
+.radiobox.active .fa-square-o:before
 {
-    background-color: #007f00;
-    color: white;
-}
-    .radiobox.green:hover,
-    .radiobox.green:focus,
-    .radiobox.green.focus,
-    .radiobox.green:active,
-    .radiobox.green.active {
-        color: black;
-        background-color: #b2d8b2;
-    }
-
-.radiobox.blue
-{
-    background-color: #0000FF;
-    color: white;
-}
-    .radiobox.blue:hover,
-    .radiobox.blue:focus,
-    .radiobox.blue.focus,
-    .radiobox.blue:active,
-    .radiobox.blue.active {
-        color: black;
-        background-color: #ccccff;
-    }
-
-.radiobox.purple
-{
-    background-color: #551A8B;
-    color: white;
+  content: "\f046";
 }
 
-    .radiobox.purple:hover,
-    .radiobox.purple:focus,
-    .radiobox.purple.focus,
-    .radiobox.purple:active,
-    .radiobox.purple.active {
-        color: black;
-        background-color: #ddd1e7;
-    }
-
-.radiobox.yellow
+.radiobox.orange .fa
 {
-    background-color: #FFFF00;
-    color: #333;
+    color: #ffa500;
+    
 }
 
-    .radiobox.yellow:hover,
-    .radiobox.yellow:focus,
-    .radiobox.yellow.focus,
-    .radiobox.yellow:active,
-    .radiobox.yellow.active {
-        color: black;
-        background-color: #ffffcc;
-    }
+.radiobox.red .fa
+{
+    color: #ff0000;
+}
+
+.radiobox.green .fa
+{
+    color: #007f00;
+}
+
+.radiobox.blue .fa
+{
+    color: #0000FF;
+}
+
+.radiobox.purple .fa
+{
+    color: #551A8B;
+}
+
+.radiobox.yellow .fa
+{
+    color: #FFFF00;
+}
