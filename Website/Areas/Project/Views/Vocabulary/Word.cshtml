@@ -41,23 +41,23 @@
                                         @Html.LabelFor(model => model.PartOfSpeech, htmlAttributes: new { @class = "control-label col-sm-12" })
                                         <div class="col-md-12">
                                             <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default radiobox orange">
-                                                    <input name="PartOfSpeech" value="adjative" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("active") ? "class=\"active\"" : String.Empty) type="radio">Adjative
+                                                <label class="btn btn-default radiobox orange @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("active") ? "active" : String.Empty)">
+                                                    <input name="PartOfSpeech" value="adjative" type="radio">Adjative
                                                 </label>
-                                                <label class="btn btn-default radiobox red">
-                                                    <input name="PartOfSpeech" value="noun" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("noun") ? "class=\"active\"" : String.Empty) type="radio">Noun
+                                                <label class="btn btn-default radiobox red @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("noun") ? "active" : String.Empty)">
+                                                    <input name="PartOfSpeech" value="noun" type="radio">Noun
                                                 </label>
-                                                <label class="btn btn-default radiobox green">
-                                                    <input name="PartOfSpeech" value="verb" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("verb") ? "class=\"active\"" : String.Empty) type="radio">Verb
+                                                <label class="btn btn-default radiobox green @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("verb") ? "active" : String.Empty)">
+                                                    <input name="PartOfSpeech" value="verb" type="radio">Verb
                                                 </label>
-                                                <label class="btn btn-default radiobox blue">
-                                                    <input name="PartOfSpeech" value="preposition" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("preposition") ? "class=\"active\"" : String.Empty) type="radio">Preposition
+                                                <label class="btn btn-default radiobox blue @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("preposition") ? "active" : String.Empty)">
+                                                    <input name="PartOfSpeech" value="preposition" type="radio">Preposition
                                                 </label>
-                                                <label class="btn btn-default radiobox purple">
-                                                    <input name="PartOfSpeech" value="adverb" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("adverb") ? "class=\"active\"" : String.Empty) type="radio">Adverb
+                                                <label class="btn btn-default radiobox purple @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("adverb") ? "active" : String.Empty)">
+                                                    <input name="PartOfSpeech" value="adverb" type="radio">Adverb
                                                 </label>
-                                                <label class="btn btn-default radiobox yellow">
-                                                    <input name="PartOfSpeech" value="pronoun" @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("pronoun") ? "class=\"active\"" : String.Empty) type="radio">Pronoun
+                                                <label class="btn btn-default radiobox yellow @(!string.IsNullOrWhiteSpace(this.Model.PartOfSpeech) && this.Model.PartOfSpeech.Equals("pronoun") ? "active" : String.Empty)">
+                                                    <input name="PartOfSpeech" value="pronoun" type="radio">Pronoun
                                                 </label>
                                             </div>
                                             @Html.ValidationMessageFor(model => model.PartOfSpeech, "", new { @class = "text-danger" })
